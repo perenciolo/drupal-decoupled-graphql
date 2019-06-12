@@ -1,0 +1,23 @@
+uuid: 3313c45a-9aa7-4a8f-a16f-52fd71bd83cb
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.text_and_photo
+    - field.storage.block_content.field_side_photo_position
+  module:
+    - options
+id: block_content.text_and_photo.field_side_photo_position
+field_name: field_side_photo_position
+entity_type: block_content
+bundle: text_and_photo
+label: 'Image Position'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: left
+default_value_callback: ''
+settings: {  }
+field_type: list_string

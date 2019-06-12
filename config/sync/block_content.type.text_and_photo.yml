@@ -1,0 +1,8 @@
+uuid: 4f47b7c2-1bad-4909-937d-e7cf99f82bc8
+langcode: en
+status: true
+dependencies: {  }
+id: text_and_photo
+label: 'Text and Photo'
+revision: 0
+description: 'Create a block with text and side photo'

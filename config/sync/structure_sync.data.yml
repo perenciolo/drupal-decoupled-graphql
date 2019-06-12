@@ -1,5 +1,35 @@
 blocks:
   -
+    info: 'Left Photo'
+    langcode: en
+    uuid: 7050ccbc-4951-40ce-9fca-06305e51750d
+    bundle: text_and_photo
+    revision_id: null
+    rev_id_current: null
+    fields:
+      field_side_photo_content:
+        value: "<p>Sed sit amet arcu quam. Integer in hendrerit libero. Maecenas eu scelerisque odio. In vitae enim bibendum sem maximus posuere et ac justo. Integer eget nibh elit. Integer sit amet augue consectetur, commodo sem scelerisque, commodo quam. Phasellus quis augue vel justo commodo congue nec a enim. Curabitur hendrerit leo id dignissim suscipit. Praesent vel hendrerit nisi. Donec nec elit sed magna pellentesque egestas eu non diam. In ultricies fringilla diam id accumsan. Etiam malesuada nec mauris eget porta. Ut ac felis quam. Vivamus blandit, ex in iaculis tincidunt, ligula tellus aliquam odio, eu iaculis arcu velit ac lorem. Pellentesque convallis nibh mattis, ullamcorper odio vitae, tempor lectus. Phasellus pellentesque sagittis magna, vel viverra lorem dignissim eu.</p>\r\n"
+        format: basic_html
+      field_side_photo_image_url:
+        value: 'https://placebear.com/g/1024/560'
+      field_side_photo_position:
+        value: left
+  -
+    info: 'Right Photo'
+    langcode: en
+    uuid: 0b767e07-f0e4-4379-954e-ef050351e105
+    bundle: text_and_photo
+    revision_id: null
+    rev_id_current: null
+    fields:
+      field_side_photo_content:
+        value: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras consequat tortor nec tristique sollicitudin. Maecenas ut malesuada velit, sed viverra augue. Donec porttitor lacus vitae erat efficitur, eget finibus turpis commodo. Vestibulum sollicitudin, metus at eleifend rutrum, magna erat volutpat sapien, feugiat finibus leo metus a elit. Etiam ut justo in arcu gravida ultrices. Fusce finibus tincidunt rutrum. Suspendisse eget consequat tortor. Duis viverra vestibulum condimentum. Aliquam tincidunt ligula congue, suscipit odio sit amet, molestie nulla.</p>\r\n"
+        format: basic_html
+      field_side_photo_image_url:
+        value: 'https://placebear.com/g/1024/550'
+      field_side_photo_position:
+        value: right
+  -
     info: 'Card rows infos'
     langcode: en
     uuid: 82392264-f13f-4513-86f6-d1c97014b2fe

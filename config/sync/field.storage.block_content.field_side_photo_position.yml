@@ -1,0 +1,27 @@
+uuid: 29e007d5-a1e7-4a31-b78f-1f6b5669b0c2
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - options
+id: block_content.field_side_photo_position
+field_name: field_side_photo_position
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: left
+      label: left
+    -
+      value: right
+      label: right
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

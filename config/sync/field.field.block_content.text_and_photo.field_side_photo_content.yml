@@ -1,0 +1,21 @@
+uuid: 495971b7-8332-4517-a080-e22624133b19
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.text_and_photo
+    - field.storage.block_content.field_side_photo_content
+  module:
+    - text
+id: block_content.text_and_photo.field_side_photo_content
+field_name: field_side_photo_content
+entity_type: block_content
+bundle: text_and_photo
+label: Content
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

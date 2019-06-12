@@ -1,0 +1,19 @@
+uuid: bb1ab0a9-3ea6-46b3-8661-7c6e55bbd9c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.text_and_photo
+    - field.storage.block_content.field_side_photo_image_url
+id: block_content.text_and_photo.field_side_photo_image_url
+field_name: field_side_photo_image_url
+entity_type: block_content
+bundle: text_and_photo
+label: 'Image Url'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
