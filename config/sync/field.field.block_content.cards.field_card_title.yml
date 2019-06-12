@@ -1,0 +1,19 @@
+uuid: b102a067-acc4-4bba-ac9d-7349d614fc02
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cards
+    - field.storage.block_content.field_card_title
+id: block_content.cards.field_card_title
+field_name: field_card_title
+entity_type: block_content
+bundle: cards
+label: Title
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,8 @@
+uuid: d95e7a6c-9db0-4b17-821c-a11e1b68d9c8
+langcode: en
+status: true
+dependencies: {  }
+id: cards
+label: Cards
+revision: 0
+description: ''

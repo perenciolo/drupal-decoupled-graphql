@@ -1,0 +1,23 @@
+uuid: c9fd7ae8-309d-4d82-ba9e-fd5841dc3d21
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cards
+    - field.storage.block_content.field_card_columns
+  module:
+    - options
+id: block_content.cards.field_card_columns
+field_name: field_card_columns
+entity_type: block_content
+bundle: cards
+label: 'Number of columns'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: '4'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

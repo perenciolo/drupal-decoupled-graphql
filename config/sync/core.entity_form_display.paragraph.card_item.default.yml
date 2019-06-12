@@ -1,0 +1,34 @@
+uuid: d24a77b3-73a4-4107-a757-2632e3b15cc9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.card_item.field_card_description
+    - field.field.paragraph.card_item.field_card_title
+    - paragraphs.paragraphs_type.card_item
+  module:
+    - text
+id: paragraph.card_item.default
+targetEntityType: paragraph
+bundle: card_item
+mode: default
+content:
+  field_card_description:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_card_title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true
