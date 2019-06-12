@@ -1,0 +1,14 @@
+blocks:
+  -
+    info: 'Home carousel block'
+    langcode: en
+    uuid: a05ce1bc-2fcb-4382-b009-ef27dc60e184
+    bundle: carousel
+    revision_id: null
+    rev_id_current: null
+    fields:
+      field_carousel_slide_paragraph:
+        target_id: '1'
+        target_revision_id: '1'
+      field_carousel_title:
+        value: 'Home Carousel'
