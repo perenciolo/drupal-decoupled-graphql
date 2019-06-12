@@ -1,0 +1,8 @@
+uuid: c857e5b8-ba5e-4cb8-9164-b8749173448e
+langcode: en
+status: true
+dependencies: {  }
+id: carousel
+label: Carousel
+revision: 0
+description: 'A basic carousel structure'

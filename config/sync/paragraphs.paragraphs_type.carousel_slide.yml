@@ -1,0 +1,9 @@
+uuid: 19998a73-d4bb-4138-a03e-a9631cbabd9e
+langcode: en
+status: true
+dependencies: {  }
+id: carousel_slide
+label: 'Carousel Slide'
+icon_uuid: null
+description: 'Fields required to create a carousel slide.'
+behavior_plugins: {  }

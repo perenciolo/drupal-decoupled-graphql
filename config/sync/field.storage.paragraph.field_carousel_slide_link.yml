@@ -1,0 +1,19 @@
+uuid: 2269be87-6460-4170-aaef-cc0c65a82228
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - paragraphs
+id: paragraph.field_carousel_slide_link
+field_name: field_carousel_slide_link
+entity_type: paragraph
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
