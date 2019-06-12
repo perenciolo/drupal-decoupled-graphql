@@ -1,5 +1,23 @@
 blocks:
   -
+    info: 'Card rows infos'
+    langcode: en
+    uuid: 82392264-f13f-4513-86f6-d1c97014b2fe
+    bundle: cards
+    revision_id: null
+    rev_id_current: null
+    fields:
+      field_card_columns:
+        value: '4'
+      field_card_description:
+        value: "<p>Vestibulum ullamcorper, tortor vitae dictum lacinia, metus ipsum scelerisque mauris, sit amet suscipit nulla nulla sit amet arcu. Etiam iaculis pretium ipsum, eu volutpat lorem hendrerit sit amet.</p>\r\n"
+        format: full_html
+      field_card_item:
+        target_id: '4'
+        target_revision_id: '4'
+      field_card_title:
+        value: 'Rows Info'
+  -
     info: 'Home carousel block'
     langcode: en
     uuid: a05ce1bc-2fcb-4382-b009-ef27dc60e184
