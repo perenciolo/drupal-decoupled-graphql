@@ -14,9 +14,14 @@ events:
   post-install:
     - appserver: cd $LANDO_WEBROOT && drush sql-drop --yes
     - appserver: cd $LANDO_WEBROOT && drush si --db-url=mysql://drupal8:drupal8@database:3306/drupal8 --locale='en' --site-name='D8 and Graphql' --site-mail='admin@example.com' --account-name='admin' --account-mail='admin@example.com' --account-pass='admin' --yes
+    - appserver: cd $LANDO_WEBROOT && drush en graphql graphql_core
   post-devel:
     - appserver: cd $LANDO_WEBROOT && drupal site:mode dev
-    - appserver: cd $LANDO_WEBROOT && drupal moi devel webprofiler
+    - appserver: cd $LANDO_WEBROOT && drush then adminimal_theme
+    - appserver: cd $LANDO_WEBROOT && drush config-set system.theme admin adminimal_theme --yes
+    - appserver: cd $LANDO_WEBROOT && drush en adminimal_admin_toolbar admin_toolbar_tools admin_toolbar_links_access_filter -y
+    - appserver: cd $LANDO_WEBROOT && drush en kint --yes
+    - appserver: cd $LANDO_WEBROOT && drupal moi devel #webprofiler
   post-update:
     - appserver: cd $LANDO_MOUNT && composer update
     - appserver: cd $LANDO_WEBROOT && drupal updb
