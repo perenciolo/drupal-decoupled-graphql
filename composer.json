@@ -45,7 +45,7 @@
         "drupal/console": "^1.0.2",
         "drush/drush": "^9.0",
         "drupal/drush_help": "^1.0",
-        "drupal/devel": "^1.2",
+        "drupal/devel": "^2.1",
         "drupal/field_name_prefix_remove": "1.x-dev",
         "drupal/stage_file_proxy": "^1.0",
         "grasmash/yaml-cli": "^1.0",
