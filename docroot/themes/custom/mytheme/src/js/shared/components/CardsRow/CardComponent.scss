@@ -1,0 +1,9 @@
+.is {
+  @for $i from 1 through 4 {
+    &-#{$i} {
+      flex: 1 1 (100 / $i) * 1%;
+      max-width: (100 / $i) * 1%;
+      padding: 0 20px;
+    }
+  }
+}

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import renderHTML from 'react-render-html';
 
 import api from '_shared/Api';
+import './CardsComponent.scss';
 import CardComponent from './CardComponent';
 
 const GET_CARDS = `

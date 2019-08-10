@@ -1,5 +1,7 @@
 const path = require('path');
 const glob = require('glob');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const rootDir = path.resolve(__dirname);
 
@@ -106,9 +108,24 @@ module.exports = {
         test: /\.js/,
         include: [new RegExp(themeSrcPath)],
         loader: 'babel-loader'
+      },
+      {
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          'style-loader',
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader'
+        ]
       }
     ]
   },
+  plugins: [
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'docroot/themes/custom/mytheme/dist/[contenthash].css'
+    })
+  ],
   resolve: {
     alias: {
       _shared: path.resolve(themeSrcPath, 'shared'),

@@ -1,6 +1,17 @@
+js-header:
+  css:
+    theme:
+      dist/b6fa2b4a43c5893b290c.css: {}
+      dist/f218fdf409270a239588.css: {}
+  #js
+  #  header: true
+  #  assets/js/polyfills.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+
 global-styling:
   js:
-    assets/js/polyfills.js: { scope: header }
     assets/js/mytheme.js: {}
   dependencies:
     - core/jquery
