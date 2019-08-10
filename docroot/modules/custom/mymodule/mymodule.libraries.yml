@@ -1,0 +1,6 @@
+example:
+  js:
+    js/mymodule.compiled.js: { scope:footer }
+  dependencies:
+    - core/jquery
+    - core/drupal

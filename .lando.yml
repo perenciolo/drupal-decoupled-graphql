@@ -33,6 +33,15 @@ services:
       - "cd $LANDO_MOUNT && ./bin/phing lando-build"
     config:
       http: config/nginx.conf
+  node:
+    type: node:10
+    globals:
+      webpack-cli: "latest"
+      webpack: "latest"
+      yarn: "latest"
+    build:
+      - echo "\033[1;35mRunning NPM Install"
+      - "cd $LANDO_MOUNT/ && npm install --quiet"
 
 tooling:
   install:
@@ -48,4 +57,12 @@ tooling:
     cmd: true
     service: appserver
   node:
+    service: node
+  npm:
+    service: node
+  yarn:
+    service: node
+  webpack:
+    service: node
+  webpack-cli:
     service: node

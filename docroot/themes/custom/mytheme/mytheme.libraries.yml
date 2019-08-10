@@ -1,0 +1,7 @@
+global-styling:
+  js:
+    assets/js/polyfills.js: { scope: header }
+    assets/js/mytheme.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
