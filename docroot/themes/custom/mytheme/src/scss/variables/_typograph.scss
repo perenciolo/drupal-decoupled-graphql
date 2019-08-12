@@ -1,0 +1,136 @@
+$font-base-size: 10px !default;
+
+// Font stacks
+$font-icons: 'Material Icons';
+
+$hero-font: 'Arial Black', Arial, sans-serif;
+$body-font: Arial, sans-serif;
+$icon-font: 'Icons';
+
+$font-thin: $body-font;
+$font-medium: $body-font;
+$font-thick: $hero-font;
+
+// Font sizes
+@mixin font-90() {
+  font-size: px-to-rem(90);
+  line-height: 1; // 90px
+}
+
+@mixin font-72() {
+  font-size: px-to-rem(72);
+  line-height: 1; // 72px
+}
+
+@mixin font-60() {
+  font-size: px-to-rem(60);
+  line-height: 1; // 60px
+}
+
+@mixin font-48() {
+  font-size: px-to-rem(48);
+  line-height: 1.125; // 54px
+}
+
+@mixin font-36() {
+  font-size: px-to-rem(36);
+  line-height: (11/9); // 44px
+}
+
+@mixin font-24() {
+  font-size: px-to-rem(24);
+  line-height: (17/12); // 34px
+}
+
+@mixin font-18() {
+  font-size: px-to-rem(18);
+  line-height: 1.35; // 24px
+}
+
+@mixin font-16-heading() {
+  font-size: px-to-rem(16);
+  line-height: 1.25; // 20px
+}
+
+@mixin font-16() {
+  font-size: px-to-rem(16);
+  line-height: 1.5; // 24px
+}
+
+@mixin font-14() {
+  font-size: px-to-rem(14);
+  line-height: (10/7); // 20px
+}
+
+@mixin font-12() {
+  font-size: px-to-rem(12);
+  line-height: (12/7); // 24px
+}
+
+@mixin font-title-large() {
+  @include font-48();
+  font-family: $hero-font;
+
+  @include breakpoint('md') {
+    @include font-72();
+  }
+}
+
+@mixin font-title-medium() {
+  @include font-48();
+  font-family: $hero-font;
+
+  @include breakpoint('md') {
+    @include font-60();
+  }
+}
+
+@mixin font-title() {
+  @include font-24();
+  font-family: $hero-font;
+
+  @include breakpoint('md') {
+    @include font-48();
+  }
+}
+
+@mixin font-sub-title() {
+  @include font-24();
+  font-family: $hero-font;
+
+  @include breakpoint('md') {
+    @include font-36();
+  }
+}
+
+@mixin font-small-title() {
+  @include font-16-heading();
+  font-family: $hero-font;
+}
+
+@mixin font-body() {
+  @include font-16();
+  font-family: $body-font;
+}
+
+@mixin font-small() {
+  @include font-14();
+  font-family: $body-font;
+}
+
+@mixin really-long-text-all-sizes() {
+  /* These are technically the same, but use both */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  /* This is the dangerous one in WebKit, as it breaks things wherever */
+  // word-break: break-all;
+  /* Instead use this non-standard one: */
+  word-break: break-word;
+}
+
+.really-long-text {
+  @include breakpoint('xs') {
+    @include really-long-text-all-sizes();
+  }
+}

@@ -1,7 +1,6 @@
 const path = require('path');
 const glob = require('glob');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const rootDir = path.resolve(__dirname);
 
@@ -121,7 +120,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: 'docroot/themes/custom/mytheme/dist/[contenthash].css'
     })
