@@ -1,7 +1,16 @@
-// APP standards
-@import 'standards/variables';
-@import 'standards/layout';
-@import 'standards/default';
+// Normalize.
+@import 'vendors/normalize';
+@import 'vendors/bootstrap';
+
+// APP variables
+@import 'variables/variables';
+@import 'variables/colors';
+@import 'variables/mixins';
+@import 'variables/typograph';
+
+// APP base
+@import 'base/layout';
+@import 'base/typograph';
 
 // Atoms
 // Molecules

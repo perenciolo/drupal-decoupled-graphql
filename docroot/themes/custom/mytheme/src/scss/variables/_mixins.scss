@@ -1,0 +1,274 @@
+// px-to-rem() takes an number (without units) as a parameter and calculates
+// the correct number of rems for the desired size in pixels
+//
+// Example 1
+// font-size: px-to-rem(24);
+//
+// Example 2
+// max-width: px-to-rem(1200);
+
+$font-base-size: 10px !default;
+
+@function px-to-rem($number) {
+  @if (unitless($number)) {
+    $number: $number * 1px;
+  }
+
+  $raw: $number / $font-base-size;
+  $rounded: ceil($raw * 10000) / 10000;
+  @return $rounded * 1rem;
+}
+
+$screen-xxs-max: 479px;
+
+// sass-lint:disable no-warn
+@mixin breakpoint($class) {
+  @if $class == xxs {
+    @media (max-width: $screen-xxs-max) {
+      @content;
+    }
+  } @else if $class == xs {
+    @media (max-width: $screen-xs-max) {
+      @content;
+    }
+  } @else if $class == sm {
+    @media (min-width: $screen-sm-min) {
+      @content;
+    }
+  } @else if $class == md {
+    @media (min-width: $screen-md-min) {
+      @content;
+    }
+  } @else if $class == lg {
+    @media (min-width: $screen-lg-min) {
+      @content;
+    }
+  } @else {
+    @warn 'Breakpoint mixin supports: xxs, xs, sm, md, and lg';
+  }
+}
+
+@mixin scrollbarcustom(
+  $color: #000,
+  $height: '440',
+  $bg-color: #efeff0,
+  $border: 3px,
+  $width-size: 10px
+) {
+  height: auto;
+  max-height: #{$height}px;
+  overflow-y: auto;
+  padding-right: 10px;
+
+  &::-webkit-scrollbar-track {
+    border-radius: $border;
+  }
+
+  &::-webkit-scrollbar {
+    width: $width-size;
+  }
+
+  &::-webkit-scrollbar:horizontal {
+    height: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $color;
+    border-radius: $border;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: $color;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    height: 10px;
+  }
+
+  &::-webkit-scrollbar-track-piece {
+    background-color: $bg-color;
+    border-radius: $border;
+  }
+}
+
+// Background overlay
+@mixin overlay($opacity, $bg) {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: $bg;
+  opacity: $opacity;
+}
+
+/**
+*   Visually hide text within an element
+*   Used mostly for accessibility reasons
+*
+*   No Params
+*
+*   Example Usage:
+*
+*     button {
+*       span {
+*         @include visuallyhidden;
+*       }
+*     }
+*
+*/
+@mixin visuallyhidden {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@mixin centerer($horizontal: true, $vertical: true) {
+  position: absolute;
+  @if ($horizontal and $vertical) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } @else if ($horizontal) {
+    left: 50%;
+    transform: translate(-50%, 0);
+  } @else if ($vertical) {
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+}
+
+/**
+*  This mixin should be used to declare specific properties
+*  to resolve Internet Explorer compatibility issues.
+*/
+@mixin ie() {
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    @content;
+  }
+}
+
+@mixin input() {
+  display: block;
+  width: 100%;
+  height: 45px;
+  font-size: px-to-rem(16) !important;
+  color: $global-black;
+  border: 1px solid $global-gray-1;
+  background: transparent;
+  outline: none;
+}
+
+@mixin placeholder-color($color) {
+  &::-webkit-input-placeholder {
+    /* WebKit, Blink, Edge */
+    color: $color;
+  }
+  &:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: $color;
+    opacity: 1;
+  }
+  &::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: $color;
+    opacity: 1;
+  }
+  &:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: $color;
+  }
+  &::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: $color;
+  }
+  &::placeholder {
+    /* Most modern browsers support this now. */
+    color: $color;
+  }
+}
+
+@mixin video-play($size) {
+  @if (unitless($size)) {
+    $size: $size * 1px;
+  }
+  background-size: contain;
+  background-color: $black-bg;
+  border: 1px solid $white-text;
+  border-radius: 50%;
+  bottom: 10%;
+  color: $white-text;
+  cursor: pointer;
+  display: block;
+  font-size: $size * (1/2); // 50% of width/height
+  height: $size;
+  left: (9/16) * 10%; // Match the bottom in size
+  line-height: $size - 2px; // Minus the border
+  margin: 0;
+  outline: 0;
+  position: absolute;
+  text-align: center;
+  top: auto;
+  width: $size;
+  z-index: 2;
+
+  &:hover {
+    background-color: $red-bg;
+  }
+
+  .vjs-control-text {
+    @include font-body();
+  }
+}
+
+@mixin video-play-size($size) {
+  @if (unitless($size)) {
+    $size: $size * 1px;
+  }
+  font-size: $size * (1/2); // 50% of width/height
+  height: $size;
+  line-height: $size - 2px; // Minus the border
+  width: $size;
+}
+
+@mixin icon($font-size: 16, $icon-content: '') {
+  font-family: $icon-font;
+  font-size: px-to-rem($font-size);
+  font-weight: normal;
+  display: block;
+
+  &:before {
+    content: $icon-content;
+  }
+}
+
+/* Media Orientation max-width and orientation {portrait or landscape} */
+@mixin orientation($max-width, $orientation) {
+  @media screen and (max-width: $max-width) and (orientation: $orientation) {
+    @content;
+  }
+}
+
+@mixin box-sizing($type: 'content-box') {
+  box-sizing: $type;
+}
+
+@mixin clearfix {
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+@mixin center-block() {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

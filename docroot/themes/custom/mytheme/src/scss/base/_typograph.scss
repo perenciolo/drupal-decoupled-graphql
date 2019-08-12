@@ -1,0 +1,165 @@
+html {
+  font-size: $font-base-size;
+}
+
+body {
+  color: $black-text;
+  font-family: $body-font;
+  @include font-body();
+
+  &.adminimal {
+    font: initial;
+    font-family: $body-font;
+  }
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4 {
+  font-family: $hero-font;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+h5,
+.h5,
+h6,
+.h6 {
+  font-family: $body-font;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+h1,
+.h1,
+h2,
+.h2 {
+  @include font-title();
+}
+
+h3,
+.h3 {
+  @include font-36();
+}
+
+h4,
+.h4,
+h5,
+.h5 {
+  @include font-24();
+}
+
+h6,
+.h6 {
+  @include font-body();
+}
+
+blockquote {
+  margin: 35px 0;
+  padding: 25px 0;
+  border-left: none;
+  border-top: 1px solid $gray-separator;
+  border-bottom: 1px solid $gray-separator;
+  @include font-24();
+
+  p,
+  ul,
+  ol {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+p,
+ul,
+ol {
+  margin-bottom: 1.25em;
+  margin-top: 0;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+ul,
+ol {
+  ul,
+  ol {
+    margin-bottom: 0;
+  }
+}
+
+small,
+.small {
+  font-size: 75%;
+}
+
+mark,
+.mark {
+  background-color: $state-warning-bg;
+  padding: 0.2em;
+}
+
+strong,
+b {
+  font-family: $hero-font;
+}
+
+sub,
+sup {
+  bottom: auto;
+  font-size: 56.25%;
+  line-height: 1;
+  position: relative;
+  top: auto;
+}
+
+sup {
+  vertical-align: text-top;
+}
+
+sub {
+  vertical-align: text-bottom;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.text-nowrap {
+  white-space: nowrap;
+}
+
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.text-white {
+  color: #ffffff;
+}

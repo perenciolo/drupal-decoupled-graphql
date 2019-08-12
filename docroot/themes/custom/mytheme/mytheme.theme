@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * @file
+ * Theme preprocess file.
+ */
+
+/**
+ * Implements template_preprocess_paragraph().
+ */
+function mytheme_preprocess_paragraph__cards_row(array &$variables) {
+  /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+  $paragraph = $variables['paragraph'];
+  // Get the parent bundle.
+  $parentBundle = $paragraph->getParentEntity()->bundle();
+
+  // Get fields.
+  $field_card_description = $paragraph->field_card_description->value;
+  $field_card_title = $paragraph->field_card_title->value;
+  $field_card_item = $paragraph->field_card_item;
+
+  foreach ($field_card_item as $key => $ref) {
+    dump($ref->entity);
+  }
+  die;
+  // \Drupal\paragraphs\Entity\Paragraph::load(
+}

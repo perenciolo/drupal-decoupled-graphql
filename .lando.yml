@@ -34,14 +34,14 @@ services:
     config:
       http: config/nginx.conf
   node:
-    type: node:10
+    type: node:8
     globals:
       webpack-cli: "latest"
       webpack: "latest"
       yarn: "latest"
     build:
       - echo "\033[1;35mRunning NPM Install"
-      - "cd $LANDO_MOUNT/ && npm install --quiet"
+      - "cd $LANDO_MOUNT/ && yarn"
 
 tooling:
   install:
