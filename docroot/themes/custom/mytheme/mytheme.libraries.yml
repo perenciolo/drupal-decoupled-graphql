@@ -1,18 +1,15 @@
 js-header:
-  css:
-    theme:
-      dist/f669d7915cfc1095d881.css: {}
-      dist/f218fdf409270a239588.css: {}
-  #js
-  #  header: true
-  #  assets/js/polyfills.js: {}
-  dependencies:
-    - core/jquery
-    - core/drupal
+  header: true
+  js:
+   assets/js/polyfills.js: {}
+
+cards-row:
+  js:
+   assets/js/cards-row.js: {}
 
 global-styling:
+  css:
+    theme:
+      assets/css/style.min.css: {}
   js:
     assets/js/mytheme.js: {}
-  dependencies:
-    - core/jquery
-    - core/drupal

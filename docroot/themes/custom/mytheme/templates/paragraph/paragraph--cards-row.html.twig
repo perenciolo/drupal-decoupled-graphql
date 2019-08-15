@@ -6,11 +6,7 @@
     not paragraph.isPublished() ? 'paragraph--unpublished',
   ]
 %}
-
+{{ attach_library('mytheme/cards-row') }}
 {% block paragraph %}
-  <div{{ attributes.addClass(classes) }}>
-    {% block content %}
-      {{ content }}
-    {% endblock %}
-  </div>
+  <div{{attributes.addClass(classes)}} id="cr-wrapper" data-src='{{ data }}'></div>
 {% endblock paragraph %}

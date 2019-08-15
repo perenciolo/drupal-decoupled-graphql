@@ -5,23 +5,46 @@
  * Theme preprocess file.
  */
 
+use Drupal\paragraphs\Entity\Paragraph;
+
 /**
  * Implements template_preprocess_paragraph().
  */
 function mytheme_preprocess_paragraph__cards_row(array &$variables) {
   /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
   $paragraph = $variables['paragraph'];
-  // Get the parent bundle.
-  $parentBundle = $paragraph->getParentEntity()->bundle();
 
   // Get fields.
   $field_card_description = $paragraph->field_card_description->value;
   $field_card_title = $paragraph->field_card_title->value;
-  $field_card_item = $paragraph->field_card_item;
+  $field_card_item_set = $paragraph->field_card_item;
+  $field_cr_num_colums = $paragraph->field_cr_num_colums->value;
 
-  foreach ($field_card_item as $key => $ref) {
-    dump($ref->entity);
+  $field_card_item = [];
+
+  if ($field_card_item_set->getIterator()) {
+    // Create card items array.
+    foreach ($field_card_item_set as $key => $ref) {
+      if ($ref->entity) {
+        $target_id = $ref->entity->id->value;
+
+        $card_item = Paragraph::load($target_id)->getFields();
+
+        $field_card_item[$key] = $card_item['field_card_description'] ? (
+          [
+            'field_card_title' => $card_item['field_card_title']->value,
+            'field_card_description' => $card_item['field_card_description']->value,
+          ]
+            ) : NULL;
+      }
+    }
   }
-  die;
-  // \Drupal\paragraphs\Entity\Paragraph::load(
+
+  $content = $variables['content'];
+  $content['field_card_title'] = $field_card_title;
+  $content['field_card_description'] = $field_card_description;
+  $content['field_card_item'] = $field_card_item;
+  $content['field_cr_num_colums'] = $field_cr_num_colums;
+
+  $variables['data'] = json_encode(['content' => $content]);
 }

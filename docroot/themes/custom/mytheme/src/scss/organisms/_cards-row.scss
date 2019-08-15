@@ -1,0 +1,50 @@
+.paragraph {
+  &--type {
+    &--cards {
+      &-row {
+        padding: 30px 25px;
+        @include breakpoint('md') {
+          padding: 60px 50px;
+        }
+      }
+    }
+  }
+}
+
+.cards {
+  &-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto -20px;
+
+    &-header {
+      flex: 1 1 100%;
+      min-width: 100%;
+      padding: 0 20px 15px;
+
+      @include breakpoint('md') {
+        padding-bottom: 30px;
+      }
+    }
+  }
+}
+
+.card {
+  &-item {
+    &-title {
+      margin-top: 15px !important;
+
+      @include breakpoint('md') {
+        margin-top: 30px !important;
+      }
+    }
+
+    &-desc {
+      margin-top: 15px !important;
+
+      @include breakpoint('md') {
+        margin-top: 20px !important;
+      }
+    }
+  }
+}

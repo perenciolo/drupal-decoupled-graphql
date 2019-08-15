@@ -14,17 +14,17 @@ const themeSrcPath = path.resolve(__dirname, `${themePath}/src/js`);
 const themeDistPath = path.resolve(__dirname, `${themePath}/assets/js`);
 const matchesInTheme = glob.sync(`${themeSrcPath}/*.js`);
 
-// const fileEntry = {};
+const fileEntry = {};
 const entry = {};
 
 const allMatches = matchesInModules.concat(matchesInTheme);
 
 allMatches.forEach(match => {
-  entry[match] = ['babel-polyfill', match];
+  fileEntry[match] = match;
 });
 
 // Set polyfills as first item in entries.
-/*const polyfills = path.resolve(
+const polyfills = path.resolve(
   __dirname,
   `${themeSrcPath}/config/polyfills.js`
 );
@@ -32,7 +32,7 @@ entry[polyfills] = polyfills;
 
 for (let key in fileEntry) {
   entry[key] = fileEntry[key];
-}*/
+}
 
 /**
  * Gets the file path of the compiled JS in the Drupal module.
@@ -121,7 +121,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'docroot/themes/custom/mytheme/dist/[contenthash].css'
+      filename: 'docroot/themes/custom/mytheme/assets/css/style.min.css'
     })
   ],
   resolve: {
