@@ -1,0 +1,4 @@
+header:
+  header: true
+  js:
+    js/polyfills.compiled.js: {}

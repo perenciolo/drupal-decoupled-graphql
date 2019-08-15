@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * Load header global libraries in every page.
+ */
+
+/**
+ * Implements hook_page_attachments().
+ */
+function decoupled_header_libraries_page_attachments(array &$attachments) {
+  $attachments['#attached']['library'][] = 'decoupled_header_libraries/header';
+}

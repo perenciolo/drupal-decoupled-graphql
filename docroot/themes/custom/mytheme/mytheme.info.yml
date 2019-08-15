@@ -4,5 +4,4 @@ description: This is a sub theme of Bartik
 core: 8.x
 base theme: bartik
 libraries:
-  - mytheme/js-header
   - mytheme/global-styling

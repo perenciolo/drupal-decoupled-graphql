@@ -1,7 +1,6 @@
 example:
   js:
-    js/mymodule.compiled.js: { scope:footer }
+    js/mymodule.compiled.js: {}
   dependencies:
-    - mytheme/js-header
     - core/jquery
     - core/drupal

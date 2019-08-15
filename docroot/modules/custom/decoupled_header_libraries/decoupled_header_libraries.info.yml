@@ -1,0 +1,5 @@
+name: decoupled_header_libraries
+type: module
+description: Progressive initiative global header libraries module
+core: 8.x
+package: progressive_decoupled
