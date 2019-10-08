@@ -1,0 +1,31 @@
+<?php
+/**
+ * @file
+ * Module `multiple_carousel` hooks file.
+ */
+
+ /**
+ * Implements hook_theme().
+ */
+function multiple_carousel_theme()
+{
+    $theme['paragraph__multiple_carousel__display_carousel'] = [
+        'base hook' => 'paragraph',
+    ];
+    return $theme;
+}
+
+/**
+ * Implements HOOK_theme_suggestions_HOOK_alter().
+ */
+function multiple_carousel_theme_suggestions_paragraph_alter(&$suggestions, $variables)
+{
+    $entity = $variables['elements']['#paragraph'];
+    $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+    $type = $entity->getType();
+
+    if ($type == 'display_carousel') {
+        $suggestions[] = 'paragraph__multiple_carousel__' . $type;
+        $suggestions[] = 'paragraph__multiple_carousel__' . $type . '__' . $sanitized_view_mode;
+    }
+}

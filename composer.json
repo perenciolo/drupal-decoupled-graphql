@@ -34,6 +34,7 @@
         "drupal/config_sync": "^2.0@beta",
         "drupal/console": "~1.0",
         "drupal/graphql": "^3.0@RC",
+        "drupal/panelizer": "^4.1",
         "drupal/paragraphs": "^1.8",
         "drupal/pdb": "^1.0",
         "drupal/structure_sync": "^1.16",

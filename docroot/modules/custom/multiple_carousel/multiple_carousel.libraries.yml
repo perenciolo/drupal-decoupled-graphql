@@ -1,0 +1,4 @@
+default:
+  js:
+    js/multiple_carousel.compiled.js: {}
+#  dependencies:
