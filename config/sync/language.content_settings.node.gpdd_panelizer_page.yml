@@ -1,0 +1,18 @@
+uuid: 31d1734d-2cba-43c0-9991-2f1de2656e11
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.gpdd_panelizer_page
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: node.gpdd_panelizer_page
+target_entity_type_id: node
+target_bundle: gpdd_panelizer_page
+default_langcode: site_default
+language_alterable: true

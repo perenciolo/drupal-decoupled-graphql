@@ -1,0 +1,21 @@
+uuid: 02871fab-5b32-4e82-967d-711dfe49e8e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_dc_body_copy
+    - paragraphs.paragraphs_type.display_carousel
+  module:
+    - text
+id: paragraph.display_carousel.field_dc_body_copy
+field_name: field_dc_body_copy
+entity_type: paragraph
+bundle: display_carousel
+label: 'Body Copy'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

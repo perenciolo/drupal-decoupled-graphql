@@ -1,0 +1,37 @@
+uuid: 60625cc5-dfcf-4ee4-90bb-62cf05ce104e
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.multiple_carousel_block
+    - field.storage.block_content.field_mcb_carousel_item
+    - paragraphs.paragraphs_type.display_carousel
+  module:
+    - entity_reference_revisions
+id: block_content.multiple_carousel_block.field_mcb_carousel_item
+field_name: field_mcb_carousel_item
+entity_type: block_content
+bundle: multiple_carousel_block
+label: 'Carousel Item'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      display_carousel: display_carousel
+    target_bundles_drag_drop:
+      card_item:
+        weight: 4
+        enabled: false
+      carousel_slide:
+        weight: 5
+        enabled: false
+      display_carousel:
+        enabled: true
+        weight: 6
+field_type: entity_reference_revisions

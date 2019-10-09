@@ -1,0 +1,19 @@
+uuid: 81747b3d-dcc6-4acd-b243-fcc868efc117
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - text
+id: paragraph.field_dc_body_copy
+field_name: field_dc_body_copy
+entity_type: paragraph
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,23 @@
+uuid: 6e928951-0918-49a3-9e93-18870aa51875
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_dc_secondary_cta
+    - paragraphs.paragraphs_type.display_carousel
+  module:
+    - link
+id: paragraph.display_carousel.field_dc_secondary_cta
+field_name: field_dc_secondary_cta
+entity_type: paragraph
+bundle: display_carousel
+label: 'Secondary CTA'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

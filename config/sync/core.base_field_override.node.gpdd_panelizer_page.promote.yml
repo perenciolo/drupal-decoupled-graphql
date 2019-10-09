@@ -1,0 +1,22 @@
+uuid: aa11b8c5-4746-4f78-bc61-04dd284c0883
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.gpdd_panelizer_page
+id: node.gpdd_panelizer_page.promote
+field_name: promote
+entity_type: node
+bundle: gpdd_panelizer_page
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

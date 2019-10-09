@@ -1,0 +1,9 @@
+uuid: 5c3c9941-e7c7-4cc3-a6d6-41eb4bc5d6f2
+langcode: en
+status: true
+dependencies: {  }
+id: pt-br
+label: 'Portuguese, Brazil'
+direction: ltr
+weight: 2
+locked: false

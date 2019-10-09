@@ -7,6 +7,8 @@ config:
   drush: composer
   database: mysql:5.7
   xdebug: true
+  conf:
+    php: .lando/php.ini
 
 events:
   post-db-import:

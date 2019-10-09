@@ -1,0 +1,31 @@
+uuid: 669e4a6f-1bac-4b38-a682-88991fbced50
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+  theme:
+    - mytheme
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: mytheme_local_tasks
+theme: mytheme
+region: content
+weight: -40
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      gpdd_panelizer_page: gpdd_panelizer_page
+    negate: true
+    context_mapping:
+      node: '@node.node_route_context:node'

@@ -1,0 +1,18 @@
+uuid: c296c8d0-8db5-4c6b-b389-b8d881262fde
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.gpdd_panelizer_page
+id: node.gpdd_panelizer_page.changed
+field_name: changed
+entity_type: node
+bundle: gpdd_panelizer_page
+label: Changed
+description: 'The time that the node was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

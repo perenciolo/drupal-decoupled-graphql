@@ -87,13 +87,13 @@ module.exports = {
         newFilePath = moduleJsOutputPath(filePath);
       }
       return newFilePath;
-    }
+    },
   },
   devtool: 'hidden-source-map',
   externals: {
     jquery: 'jQuery',
     Drupal: 'Drupal',
-    drupalSettings: 'drupalSettings'
+    drupalSettings: 'drupalSettings',
   },
   module: {
     rules: [
@@ -101,12 +101,12 @@ module.exports = {
         test: /\.es6\.js/,
         include: [new RegExp(modulePath)],
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
       },
       {
         test: /\.js/,
         include: [new RegExp(themeSrcPath)],
-        loader: 'babel-loader'
+        loader: 'babel-loader',
       },
       {
         test: /\.(sa|sc|c)ss$/,
@@ -114,20 +114,20 @@ module.exports = {
           'style-loader',
           MiniCssExtractPlugin.loader,
           'css-loader',
-          'sass-loader'
-        ]
-      }
-    ]
+          'sass-loader',
+        ],
+      },
+    ],
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'docroot/themes/custom/mytheme/assets/css/style.min.css'
-    })
+      filename: 'docroot/themes/custom/mytheme/assets/css/style.min.css',
+    }),
   ],
   resolve: {
     alias: {
       _shared: path.resolve(themeSrcPath, 'shared'),
-      _components: path.resolve(themeSrcPath, 'shared', 'components')
-    }
-  }
+      _components: path.resolve(themeSrcPath, 'shared', 'components'),
+    },
+  },
 };

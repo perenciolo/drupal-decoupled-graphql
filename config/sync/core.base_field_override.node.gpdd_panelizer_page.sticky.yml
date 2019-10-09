@@ -1,0 +1,22 @@
+uuid: 239304fc-b6fe-4cf3-8bb6-d18a040d5b27
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.gpdd_panelizer_page
+id: node.gpdd_panelizer_page.sticky
+field_name: sticky
+entity_type: node
+bundle: gpdd_panelizer_page
+label: 'Sticky at top of lists'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

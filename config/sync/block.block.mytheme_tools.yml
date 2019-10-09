@@ -1,0 +1,35 @@
+uuid: ba5e30f9-dd59-4f1b-8f55-25e09053b38d
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.tools
+  module:
+    - ctools
+    - system
+  theme:
+    - mytheme
+_core:
+  default_config_hash: rH6PpAn7-RScha1rGkohGAYSSh_1OVeZzioJPzPw6O4
+id: mytheme_tools
+theme: mytheme
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'system_menu_block:tools'
+settings:
+  id: 'system_menu_block:tools'
+  label: Tools
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      gpdd_panelizer_page: gpdd_panelizer_page
+    negate: true
+    context_mapping:
+      node: '@node.node_route_context:node'

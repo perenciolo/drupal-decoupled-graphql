@@ -1,4 +1,6 @@
 default:
   js:
-    js/multiple_carousel.compiled.js: {}
-#  dependencies:
+    js/index.compiled.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal

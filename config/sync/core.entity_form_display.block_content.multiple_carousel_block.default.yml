@@ -1,0 +1,42 @@
+uuid: 30be6769-3e2a-4c62-83de-2cb9f7e49adf
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.multiple_carousel_block
+    - field.field.block_content.multiple_carousel_block.field_mcb_carousel_item
+  module:
+    - paragraphs
+id: block_content.multiple_carousel_block.default
+targetEntityType: block_content
+bundle: multiple_carousel_block
+mode: default
+content:
+  field_mcb_carousel_item:
+    type: entity_reference_paragraphs
+    weight: 26
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden: {  }

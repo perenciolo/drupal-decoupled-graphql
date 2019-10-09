@@ -1,0 +1,29 @@
+uuid: f9999a29-ab76-432a-afb8-41b619fcc863
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+  theme:
+    - mytheme
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: mytheme_local_actions
+theme: mytheme
+region: content
+weight: -20
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      gpdd_panelizer_page: gpdd_panelizer_page
+    negate: true
+    context_mapping:
+      node: '@node.node_route_context:node'

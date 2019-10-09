@@ -1,0 +1,22 @@
+uuid: 81f4bfca-e5b6-4d3b-ad2f-61a0edc56951
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.multiple_carousel_block
+id: block_content.multiple_carousel_block.status
+field_name: status
+entity_type: block_content
+bundle: multiple_carousel_block
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

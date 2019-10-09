@@ -1,0 +1,33 @@
+uuid: 7451fe4f-6ba3-40e6-a253-8fc82992df0f
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:multiple_carousel_block:49c63f50-8d14-41e6-bb73-91b015fd595f'
+  module:
+    - block_content
+    - node
+  theme:
+    - mytheme
+id: mytheme_atstmultiplecarouselblock
+theme: mytheme
+region: content
+weight: 0
+provider: null
+plugin: 'block_content:49c63f50-8d14-41e6-bb73-91b015fd595f'
+settings:
+  id: 'block_content:49c63f50-8d14-41e6-bb73-91b015fd595f'
+  label: 'ATST - [Multiple Carousel Block]'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      page: page
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

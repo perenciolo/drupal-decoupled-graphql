@@ -1,0 +1,19 @@
+uuid: 63007492-67e5-4346-a612-e0a2d1e597b1
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - paragraphs
+id: paragraph.field_dc_primary_cta
+field_name: field_dc_primary_cta
+entity_type: paragraph
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

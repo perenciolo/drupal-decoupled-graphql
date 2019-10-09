@@ -1,0 +1,8 @@
+uuid: 85c807cd-21df-48b9-9d22-a38d7ef9e08e
+langcode: en
+status: true
+dependencies: {  }
+id: multiple_carousel_block
+label: 'Multiple Carousel Block'
+revision: 0
+description: 'Carousel display cards module'

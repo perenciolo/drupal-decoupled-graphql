@@ -6,6 +6,7 @@
     not paragraph.isPublished() ? 'paragraph--unpublished',
   ]
 %}
+{{ attach_library('multiple_carousel/index') }}
 {% block paragraph %}
   <div{{attributes.addClass(classes)}} id="cr-wrapper" data-src='{{ data }}'></div>
 {% endblock paragraph %}

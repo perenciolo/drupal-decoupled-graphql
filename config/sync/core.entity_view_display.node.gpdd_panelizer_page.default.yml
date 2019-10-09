@@ -1,0 +1,80 @@
+uuid: 7883be21-2d54-4995-9488-aaf629a9b127
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.gpdd_panelizer_page.panelizer
+    - node.type.gpdd_panelizer_page
+  module:
+    - panelizer
+    - user
+third_party_settings:
+  panelizer:
+    enable: true
+    custom: true
+    allow: false
+    default: default
+    displays:
+      default:
+        blocks:
+          5e128d1f-bf75-44b4-bf1a-23c59017146d:
+            id: 'entity_field:node:uid'
+            label: 'Authored by'
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: hidden
+              type: author
+              settings: {  }
+              third_party_settings: {  }
+              weight: 0
+              region: content
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            region: content
+            weight: 0
+            uuid: 5e128d1f-bf75-44b4-bf1a-23c59017146d
+          bbfab56d-a670-4502-a661-7a6ea554971c:
+            id: 'entity_field:node:created'
+            label: 'Authored on'
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: hidden
+              type: timestamp
+              settings:
+                date_format: medium
+                custom_date_format: ''
+                timezone: ''
+              third_party_settings: {  }
+              weight: 0
+              region: content
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            region: content
+            weight: 0
+            uuid: bbfab56d-a670-4502-a661-7a6ea554971c
+        id: panels_variant
+        label: Default
+        uuid: a149357e-2fb5-47bb-bb25-6c3805b4fb8b
+        weight: 0
+        layout: layout_onecol
+        layout_settings: {  }
+        page_title: '[node:title]'
+        storage_type: ''
+        storage_id: ''
+        builder: ipe
+        pattern: panelizer
+id: node.gpdd_panelizer_page.default
+targetEntityType: node
+bundle: gpdd_panelizer_page
+mode: default
+content:
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  panelizer: true

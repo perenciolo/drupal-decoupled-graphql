@@ -1,0 +1,25 @@
+uuid: a3781ce2-db05-4b43-af0c-d4bdaa0a48c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.multiple_carousel_block
+    - field.field.block_content.multiple_carousel_block.field_mcb_carousel_item
+  module:
+    - entity_reference_revisions
+id: block_content.multiple_carousel_block.default
+targetEntityType: block_content
+bundle: multiple_carousel_block
+mode: default
+content:
+  field_mcb_carousel_item:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true

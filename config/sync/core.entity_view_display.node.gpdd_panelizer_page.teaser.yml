@@ -1,0 +1,23 @@
+uuid: 7599d1c9-3c65-468f-b531-7b1694c0ceca
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.gpdd_panelizer_page.panelizer
+    - node.type.gpdd_panelizer_page
+  module:
+    - user
+id: node.gpdd_panelizer_page.teaser
+targetEntityType: node
+bundle: gpdd_panelizer_page
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true
+  panelizer: true
