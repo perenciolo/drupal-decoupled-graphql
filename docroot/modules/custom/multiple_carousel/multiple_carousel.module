@@ -29,3 +29,46 @@ function multiple_carousel_theme_suggestions_paragraph_alter(&$suggestions, $var
         $suggestions[] = 'paragraph__multiple_carousel__' . $type . '__' . $sanitized_view_mode;
     }
 }
+
+/**
+ * Implements HOOK_preprocess_paragraph().
+ */
+function multiple_carousel_preprocess_paragraph(array &$variables) {
+  /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+  $paragraph = $variables['paragraph'];
+  $type = $paragraph->getType();
+
+  $lang_code = \Drupal::service('language_manager')->getCurrentLanguage()->getId();
+
+  // If not `display_carousel` or does not have translation function returns.
+  if ($type !== 'display_carousel'
+  || !$paragraph->hasTranslation($lang_code)
+  || !$lang_code) {
+    return;
+  }
+
+  // Get current translation
+  $paragraph->getTranslation($lang_code);
+
+  // Set variables for template.
+  $img = $paragraph->get('field_dc_image');
+
+  $content = [
+    "field_dc_title_txt" => $paragraph->field_dc_title_txt->value,
+    "field_dc_subtitle" => $paragraph->field_dc_subtitle->value,
+    "field_dc_body_copy" => $paragraph->field_dc_body_copy->value,
+    "field_dc_image" => [
+      "uid" => $img->entity->uid->value,
+      'uri'=> $img->entity->uri->value,
+      'alt' => count ($img->getValue()) ? $img->getValue()[0]['alt'] : '',
+      'width' => count ($img->getValue()) ? $img->getValue()[0]['width'] : '',
+      'height' => count ($img->getValue()) ? $img->getValue()[0]['height'] : '',
+      "title" => count ($img->getValue()) ? $img->getValue()[0]['title'] : '',
+    ],
+    "field_dc_primary_cta" => $paragraph->get('field_dc_primary_cta')->getValue(),
+    "field_dc_secondary_cta" => $paragraph->get('field_dc_primary_cta')->getValue(),
+  ];
+
+  // Encode data for React.
+  $variables['data'] = json_encode(['content' => $content]);
+}
