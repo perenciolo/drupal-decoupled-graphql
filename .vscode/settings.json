@@ -1,6 +1,6 @@
 {
   "workbench.colorTheme": "Dracula",
-  "window.zoomLevel": 0,
+  "window.zoomLevel": 1,
   "editor.fontFamily": "Fira Code",
   "editor.fontLigatures": true,
   "editor.fontSize": 18,
@@ -30,7 +30,10 @@
   "workbench.iconTheme": "vscode-icons",
   "editor.formatOnSave": true,
   "editor.formatOnPaste": false,
-  "editor.rulers": [80, 120],
+  "editor.rulers": [
+    80,
+    120
+  ],
   "editor.tabSize": 2,
   "editor.renderWhitespace": "all",
   "terminal.integrated.fontSize": 14,

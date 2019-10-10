@@ -5,7 +5,7 @@
   "repository": "git@github.com:perenciolo/drupal-decoupled-graphql.git",
   "scripts": {
     "build:js": "webpack --config webpack.config.js -p",
-    "build:js-dev": "webpack --config webpack.config.js --mode development --devtool source-map"
+    "build:js-dev": "webpack --watch --config webpack.config.js --mode development --devtool source-map"
   },
   "license": "MIT",
   "devDependencies": {

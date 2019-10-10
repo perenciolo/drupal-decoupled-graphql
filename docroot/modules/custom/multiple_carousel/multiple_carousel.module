@@ -4,6 +4,8 @@
  * Module `multiple_carousel` hooks file.
  */
 
+ use \Drupal\file\Entity\File;
+
  /**
  * Implements hook_theme().
  */
@@ -52,6 +54,7 @@ function multiple_carousel_preprocess_paragraph(array &$variables) {
 
   // Set variables for template.
   $img = $paragraph->get('field_dc_image');
+  $img_path = File::load($img->entity->fid->value)->url();
 
   $content = [
     "field_dc_title_txt" => $paragraph->field_dc_title_txt->value,
@@ -59,7 +62,7 @@ function multiple_carousel_preprocess_paragraph(array &$variables) {
     "field_dc_body_copy" => $paragraph->field_dc_body_copy->value,
     "field_dc_image" => [
       "uid" => $img->entity->uid->value,
-      'uri'=> $img->entity->uri->value,
+      'uri'=> $img_path,
       'alt' => count ($img->getValue()) ? $img->getValue()[0]['alt'] : '',
       'width' => count ($img->getValue()) ? $img->getValue()[0]['width'] : '',
       'height' => count ($img->getValue()) ? $img->getValue()[0]['height'] : '',
@@ -70,5 +73,9 @@ function multiple_carousel_preprocess_paragraph(array &$variables) {
   ];
 
   // Encode data for React.
-  $variables['data'] = json_encode(['content' => $content]);
+  $variables['data'] = json_encode([
+    'content' => $content
+  ]);
+
+  $variables['id'] = $paragraph->id();
 }

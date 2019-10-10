@@ -1,19 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import MultipleCarousel from './components/MultipleCarousel';
+import MultipleCarousel from '_components/MultipleCarousel';
 
 (function($, Drupal) {
   Drupal.behaviors.mytheme = {
     attach(context) {
       if (context === document) {
-        const wrapper = $('#cr-wrapper');
+        const wrapper = $('.paragraph--type--display-carousel');
 
-        const data = wrapper.data('src').content || null;
+        if (wrapper.length) {
+          wrapper.each(function() {
+            const data = $(this).data('src').content || null;
 
-        wrapper && wrapper.length
-          ? ReactDOM.render(<MultipleCarousel />, wrapper[0])
-          : false;
+            console.log(data);
+            $(this).length
+              ? ReactDOM.render(<MultipleCarousel data={data} />, $(this)[0])
+              : false;
+          });
+        }
       }
     },
   };
