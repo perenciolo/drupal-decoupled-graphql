@@ -7,15 +7,19 @@ import MultipleCarousel from '_components/MultipleCarousel';
   Drupal.behaviors.mytheme = {
     attach(context) {
       if (context === document) {
-        const wrapper = $('.paragraph--type--display-carousel');
+        const wrapper = $('.multiple-carousel__wrapper');
 
         if (wrapper.length) {
           wrapper.each(function() {
             const data = $(this).data('src').content || null;
+            // 1 steps | 0 arrow
+            const navType = $(this).data('nav');
 
-            console.log(data);
             $(this).length
-              ? ReactDOM.render(<MultipleCarousel data={data} />, $(this)[0])
+              ? ReactDOM.render(
+                  <MultipleCarousel navType={navType} data={data} />,
+                  $(this)[0]
+                )
               : false;
           });
         }

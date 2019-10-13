@@ -5,6 +5,7 @@ dependencies:
   config:
     - block_content.type.multiple_carousel_block
     - field.field.block_content.multiple_carousel_block.field_mcb_carousel_item
+    - field.field.block_content.multiple_carousel_block.field_mcb_carousel_nav_type
   module:
     - paragraphs
 id: block_content.multiple_carousel_block.default
@@ -24,6 +25,12 @@ content:
       default_paragraph_type: ''
     third_party_settings: {  }
     region: content
+  field_mcb_carousel_nav_type:
+    weight: 27
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
   info:
     type: string_textfield
     weight: -5
@@ -38,5 +45,10 @@ content:
     region: content
     settings:
       include_locked: true
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden: {  }

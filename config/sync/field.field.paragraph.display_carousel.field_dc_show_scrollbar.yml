@@ -1,0 +1,23 @@
+uuid: 1699f06a-3f78-4b13-95db-7aaf7ae300f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_dc_show_scrollbar
+    - paragraphs.paragraphs_type.display_carousel
+id: paragraph.display_carousel.field_dc_show_scrollbar
+field_name: field_dc_show_scrollbar
+entity_type: paragraph
+bundle: display_carousel
+label: 'Show Scrollbar'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Show
+  off_label: Hide
+field_type: boolean

@@ -5,77 +5,194 @@
  */
 
  use \Drupal\file\Entity\File;
+ use Drupal\paragraphs\Entity\Paragraph;
 
  /**
  * Implements hook_theme().
  */
-function multiple_carousel_theme()
+function multiple_carousel_theme($existing, $type, $theme, $path)
 {
-    $theme['paragraph__multiple_carousel__display_carousel'] = [
-        'base hook' => 'paragraph',
+    $templ_path = $path . '/templates/';
+
+    // $theme['paragraph__multiple_carousel__display_carousel'] = [
+    //     'base hook' => 'paragraph',
+    // ];
+    return [
+      'field__block_content__multiple_carousel_block' => [
+        'render element' => 'elements',
+        'template' => 'field--block-content--multiple-carousel-block',
+        'path' => $templ_path . 'field',
+        'base hook' => 'field',
+      ],
     ];
-    return $theme;
+    // return $theme;
+}
+
+function multiple_carousel_preprocess_field(&$variables, $hook)
+{
+  
+  $element = $variables['element'];
+
+  if (isset($element['#field_name'])) {
+    if ($element['#field_name'] == 'field_mcb_carousel_item') {
+      if (!(isset($element["#items"])) ||
+          !(count($element["#items"]->referencedEntities()))) {
+          return;
+      }
+
+      foreach ($element["#items"]->referencedEntities() as $key => $paragraph) {
+        $type = $paragraph->getType();
+
+        $lang_code = \Drupal::service('language_manager')->getCurrentLanguage()->getId();
+
+        // If not `display_carousel` or does not have translation function returns.
+        if ($type !== 'display_carousel'
+            || !$paragraph->hasTranslation($lang_code)
+            || !$lang_code) {
+          return FALSE;
+        }
+
+        // Get current translation
+        $paragraph = $paragraph->getTranslation($lang_code);
+
+        // Nav type 0 arrow | 1 steps
+        $nav_type = isset($element[$key]['#paragraph']) ? $element[$key]['#paragraph']->nav_type : 1;
+
+        // Set variables for template.
+        $img = $paragraph->get('field_dc_image');
+        $img_path = $img->entity && $img->entity->fid->value? File::load($img->entity->fid->value)->url() : null;
+        $img_side = $paragraph->get('field_dc_image_side')->getValue();
+
+        $field_dc_show_scrollbar = count($paragraph->get('field_dc_show_scrollbar')->getValue())?$paragraph->get('field_dc_show_scrollbar')->getValue()[0]["value"] : 0;
+
+        $field_dc_primary_cta = count($paragraph->get('field_dc_primary_cta')->getValue()) ? $paragraph->get('field_dc_primary_cta')->getValue() :null;
+        $field_dc_secondary_cta = count($paragraph->get('field_dc_secondary_cta')->getValue()) ? $paragraph->get('field_dc_secondary_cta')->getValue() :null;
+        
+        $content[] = [
+          'id' => $paragraph->id(),
+          "field_dc_title_txt" => $paragraph->field_dc_title_txt->value,
+          "field_dc_subtitle" => $paragraph->field_dc_subtitle->value,
+          "field_dc_body_copy" => $paragraph->field_dc_body_copy->value,
+          "field_dc_show_scrollbar" => $field_dc_show_scrollbar,
+          "field_dc_image" => [
+            "uid" => $img && $img->entity ? $img->entity->uid->value : null,
+            'uri'=> $img_path,
+            'alt' => count($img->getValue()) ? $img->getValue()[0]['alt'] : '',
+            'width' => count($img->getValue()) ? $img->getValue()[0]['width'] : '',
+            'height' => count($img->getValue()) ? $img->getValue()[0]['height'] : '',
+            "title" => count($img->getValue()) ? $img->getValue()[0]['title'] : '',
+          ],
+          "field_dc_image_side" => count($img_side) > 0 ? $img_side[0] : 1,
+          "field_dc_primary_cta" => $field_dc_primary_cta,
+          "field_dc_secondary_cta" => $field_dc_secondary_cta,
+        ];
+      }
+
+      $variables['nav_type'] = $nav_type;
+
+      // Encode data for React.
+      $variables['data'] = json_encode([
+      'content' => $content
+      ]);
+    }
+  }
+}
+
+/**
+ * Implements HOOK__preprocess_block().
+ */
+function multiple_carousel_preprocess_block(&$variables)
+{
+  if (empty($variables['content']['#block_content'])) {
+    return FALSE;
+  }
+
+  $content = $variables['content']['#block_content'];
+  $block_bundle = $content->bundle();
+
+  if ($block_bundle === 'multiple_carousel_block') {
+    $nav_type = $content->get('field_mcb_carousel_nav_type')->value;
+    if (!empty($items = $variables['elements']['content']['field_mcb_carousel_item']['#items'])) {
+      $list = $items->referencedEntities();
+
+      if (!empty($list)) {
+        foreach ($list as $index => $listItem) {
+
+          if (!$listItem instanceof Paragraph) {
+            continue;
+          }
+
+          if ($listItem->getType() && $listItem->getType() === "display_carousel") {
+            $target_id = $listItem->id();
+            $paragraph =Paragraph::load($target_id);
+            $paragraph->nav_type = $nav_type;
+            $paragraph->save();
+          }
+        }
+      }
+    }
+  }
 }
 
 /**
  * Implements HOOK_theme_suggestions_HOOK_alter().
  */
-function multiple_carousel_theme_suggestions_paragraph_alter(&$suggestions, $variables)
-{
-    $entity = $variables['elements']['#paragraph'];
-    $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
-    $type = $entity->getType();
+// function multiple_carousel_theme_suggestions_paragraph_alter(&$suggestions, $variables)
+// {
+//     $entity = $variables['elements']['#paragraph'];
+//     $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+//     $type = $entity->getType();
 
-    if ($type == 'display_carousel') {
-        $suggestions[] = 'paragraph__multiple_carousel__' . $type;
-        $suggestions[] = 'paragraph__multiple_carousel__' . $type . '__' . $sanitized_view_mode;
-    }
-}
+//     if ($type == 'display_carousel') {
+//         $suggestions[] = 'paragraph__multiple_carousel__' . $type;
+//         $suggestions[] = 'paragraph__multiple_carousel__' . $type . '__' . $sanitized_view_mode;
+//     }
+// }
 
 /**
  * Implements HOOK_preprocess_paragraph().
  */
-function multiple_carousel_preprocess_paragraph(array &$variables) {
-  /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
-  $paragraph = $variables['paragraph'];
-  $type = $paragraph->getType();
+// function multiple_carousel_preprocess_paragraph(array &$variables) {
+//   /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+//   $paragraph = $variables['paragraph'];
+//   $type = $paragraph->getType();
 
-  $lang_code = \Drupal::service('language_manager')->getCurrentLanguage()->getId();
+//   $lang_code = \Drupal::service('language_manager')->getCurrentLanguage()->getId();
 
-  // If not `display_carousel` or does not have translation function returns.
-  if ($type !== 'display_carousel'
-  || !$paragraph->hasTranslation($lang_code)
-  || !$lang_code) {
-    return;
-  }
+//   // If not `display_carousel` or does not have translation function returns.
+//   if ($type !== 'display_carousel'
+//   || !$paragraph->hasTranslation($lang_code)
+//   || !$lang_code) {
+//     return;
+//   }
 
-  // Get current translation
-  $paragraph->getTranslation($lang_code);
+//   // Get current translation
+//   $paragraph->getTranslation($lang_code);
 
-  // Set variables for template.
-  $img = $paragraph->get('field_dc_image');
-  $img_path = File::load($img->entity->fid->value)->url();
+//   // Set variables for template.
+//   $img = $paragraph->get('field_dc_image');
+//   $img_path = File::load($img->entity->fid->value)->url();
 
-  $content = [
-    "field_dc_title_txt" => $paragraph->field_dc_title_txt->value,
-    "field_dc_subtitle" => $paragraph->field_dc_subtitle->value,
-    "field_dc_body_copy" => $paragraph->field_dc_body_copy->value,
-    "field_dc_image" => [
-      "uid" => $img->entity->uid->value,
-      'uri'=> $img_path,
-      'alt' => count ($img->getValue()) ? $img->getValue()[0]['alt'] : '',
-      'width' => count ($img->getValue()) ? $img->getValue()[0]['width'] : '',
-      'height' => count ($img->getValue()) ? $img->getValue()[0]['height'] : '',
-      "title" => count ($img->getValue()) ? $img->getValue()[0]['title'] : '',
-    ],
-    "field_dc_primary_cta" => $paragraph->get('field_dc_primary_cta')->getValue(),
-    "field_dc_secondary_cta" => $paragraph->get('field_dc_primary_cta')->getValue(),
-  ];
+//   $content = [
+//     "field_dc_title_txt" => $paragraph->field_dc_title_txt->value,
+//     "field_dc_subtitle" => $paragraph->field_dc_subtitle->value,
+//     "field_dc_body_copy" => $paragraph->field_dc_body_copy->value,
+//     "field_dc_image" => [
+//       "uid" => $img->entity->uid->value,
+//       'uri'=> $img_path,
+//       'alt' => count ($img->getValue()) ? $img->getValue()[0]['alt'] : '',
+//       'width' => count ($img->getValue()) ? $img->getValue()[0]['width'] : '',
+//       'height' => count ($img->getValue()) ? $img->getValue()[0]['height'] : '',
+//       "title" => count ($img->getValue()) ? $img->getValue()[0]['title'] : '',
+//     ],
+//     "field_dc_primary_cta" => $paragraph->get('field_dc_primary_cta')->getValue(),
+//     "field_dc_secondary_cta" => $paragraph->get('field_dc_primary_cta')->getValue(),
+//   ];
 
-  // Encode data for React.
-  $variables['data'] = json_encode([
-    'content' => $content
-  ]);
+//   // Encode data for React.
+//   $variables['data'] = json_encode([
+//     'content' => $content
+//   ]);
 
-  $variables['id'] = $paragraph->id();
-}
+//   $variables['id'] = $paragraph->id();
+// }

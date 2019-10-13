@@ -25,15 +25,14 @@
     }
   ],
   "files.associations": {
-    ".sequelizerc": "javascript"
+    ".sequelizerc": "javascript",
+    "*.module": "php",
+    "*.theme": "php"
   },
   "workbench.iconTheme": "vscode-icons",
   "editor.formatOnSave": true,
   "editor.formatOnPaste": false,
-  "editor.rulers": [
-    80,
-    120
-  ],
+  "editor.rulers": [80, 120],
   "editor.tabSize": 2,
   "editor.renderWhitespace": "all",
   "terminal.integrated.fontSize": 14,

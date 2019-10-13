@@ -1,0 +1,23 @@
+uuid: 4b75a564-6100-4a10-bf08-d108cd763046
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.multiple_carousel_block
+    - field.storage.block_content.field_mcb_carousel_nav_type
+id: block_content.multiple_carousel_block.field_mcb_carousel_nav_type
+field_name: field_mcb_carousel_nav_type
+entity_type: block_content
+bundle: multiple_carousel_block
+label: 'Carousel Navigation Type'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'Steps Navigation'
+  off_label: 'Arrow Navigation'
+field_type: boolean

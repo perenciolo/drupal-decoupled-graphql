@@ -1,0 +1,23 @@
+uuid: 42ab1ccb-eb06-467d-8638-e1676bdb5ecb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_dc_image_side
+    - paragraphs.paragraphs_type.display_carousel
+id: paragraph.display_carousel.field_dc_image_side
+field_name: field_dc_image_side
+entity_type: paragraph
+bundle: display_carousel
+label: 'Image Right'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: Right
+  off_label: Left
+field_type: boolean
