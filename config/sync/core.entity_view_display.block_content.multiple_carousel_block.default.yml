@@ -5,6 +5,7 @@ dependencies:
   config:
     - block_content.type.multiple_carousel_block
     - field.field.block_content.multiple_carousel_block.field_mcb_carousel_item
+    - field.field.block_content.multiple_carousel_block.field_mcb_carousel_nav_type
   module:
     - entity_reference_revisions
 id: block_content.multiple_carousel_block.default
@@ -20,6 +21,16 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
+    region: content
+  field_mcb_carousel_nav_type:
+    weight: 1
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
     region: content
 hidden:
   langcode: true

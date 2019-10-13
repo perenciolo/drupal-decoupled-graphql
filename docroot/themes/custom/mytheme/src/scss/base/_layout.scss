@@ -8,7 +8,7 @@
 }
 
 hr {
-  margin-top:    $line-height-computed;
+  margin-top: $line-height-computed;
   margin-bottom: $line-height-computed;
   border: 0;
   border-top: 1px solid $hr-border;
@@ -21,12 +21,11 @@ hr {
   margin: -1px;
   padding: 0;
   overflow: hidden;
-  clip: rect(0,0,0,0);
+  clip: rect(0, 0, 0, 0);
   border: 0;
 }
 
 .sr-only-focusable {
-
   &:active,
   &:focus {
     position: static;
@@ -36,7 +35,6 @@ hr {
     overflow: visible;
     clip: auto;
   }
-
 }
 
 .clearfix {
@@ -76,4 +74,114 @@ hr {
 
 .affix {
   position: fixed;
+}
+
+#page,
+#page-wrapper {
+  height: 100%;
+}
+
+.field--name-field-mcb-carousel-item {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  flex: 1;
+  overflow-x: hidden;
+}
+
+.field__item {
+  flex: 1 0 100%;
+}
+
+.block .content {
+  margin-top: 0;
+  height: 100%;
+  display: flex;
+}
+
+div[id^='cr-wrapper'] {
+  height: 100%;
+}
+
+.main-content .section {
+  padding: 0;
+  margin: 0;
+}
+
+.multiple-carousel__wrapper {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: transparent;
+}
+
+html,
+body,
+.dialog-off-canvas-main-canvas,
+.layout-container {
+  height: 100%;
+}
+
+header[role='banner'] {
+  position: relative;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(166, 151, 216, 1) 0%,
+    rgba(166, 151, 216, 1) 2%,
+    rgba(189, 127, 201, 1) 28%,
+    rgba(254, 62, 161, 1) 100%
+  );
+}
+
+.region-primary-menu {
+  clear: both;
+  margin-bottom: 50px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  background: white;
+  display: flex;
+  flex-wrap: nowrap;
+
+  .menu {
+    background: white;
+    width: 100%;
+    height: 75px;
+    display: flex;
+    align-items: center;
+  }
+
+  .block-menu {
+    .menu {
+      margin: 0;
+      padding: 0;
+      font-size: 0.929em;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+nav#block-mytheme-main-menu {
+  flex: 1 0 90%;
+}
+
+div#block-mytheme-branding {
+  flex: 1 0 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.site-branding__logo {
+  display: flex;
+  margin-right: 0;
+  margin-bottom: 0;
+  border-bottom: 0;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
 }

@@ -5,8 +5,10 @@ dependencies:
   config:
     - field.field.paragraph.display_carousel.field_dc_body_copy
     - field.field.paragraph.display_carousel.field_dc_image
+    - field.field.paragraph.display_carousel.field_dc_image_side
     - field.field.paragraph.display_carousel.field_dc_primary_cta
     - field.field.paragraph.display_carousel.field_dc_secondary_cta
+    - field.field.paragraph.display_carousel.field_dc_show_scrollbar
     - field.field.paragraph.display_carousel.field_dc_subtitle
     - field.field.paragraph.display_carousel.field_dc_title_txt
     - paragraphs.paragraphs_type.display_carousel
@@ -20,14 +22,14 @@ bundle: display_carousel
 mode: default
 content:
   field_dc_body_copy:
-    weight: 3
+    weight: 2
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_dc_image:
-    weight: 4
+    weight: 5
     label: hidden
     settings:
       image_style: ''
@@ -35,19 +37,17 @@ content:
     third_party_settings: {  }
     type: image
     region: content
-  field_dc_primary_cta:
-    weight: 5
+  field_dc_image_side:
+    weight: 4
     label: hidden
     settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
+      format: boolean
+      format_custom_true: ''
+      format_custom_false: ''
     third_party_settings: {  }
-    type: link
+    type: boolean
     region: content
-  field_dc_secondary_cta:
+  field_dc_primary_cta:
     weight: 6
     label: hidden
     settings:
@@ -59,8 +59,30 @@ content:
     third_party_settings: {  }
     type: link
     region: content
+  field_dc_secondary_cta:
+    weight: 7
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_dc_show_scrollbar:
+    weight: 3
+    label: hidden
+    settings:
+      format: boolean
+      format_custom_true: ''
+      format_custom_false: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
   field_dc_subtitle:
-    weight: 2
+    weight: 1
     label: hidden
     settings:
       link_to_entity: false
@@ -68,7 +90,7 @@ content:
     type: string
     region: content
   field_dc_title_txt:
-    weight: 1
+    weight: 0
     label: hidden
     settings:
       link_to_entity: false

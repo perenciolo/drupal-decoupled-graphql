@@ -1,0 +1,5 @@
+{% set navigation = nav_type %}
+{% if data %}
+  {{ attach_library('multiple_carousel/default') }}
+  <div class="multiple-carousel__wrapper" data-nav='{{navigation}}' data-src='{{ data }}'></div>
+{% endif %}

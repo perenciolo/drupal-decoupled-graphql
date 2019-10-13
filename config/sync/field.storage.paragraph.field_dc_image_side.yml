@@ -1,0 +1,18 @@
+uuid: 66eac88c-32e7-4f3e-af62-0a8fdbf57eac
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_dc_image_side
+field_name: field_dc_image_side
+entity_type: paragraph
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -5,8 +5,10 @@ dependencies:
   config:
     - field.field.paragraph.display_carousel.field_dc_body_copy
     - field.field.paragraph.display_carousel.field_dc_image
+    - field.field.paragraph.display_carousel.field_dc_image_side
     - field.field.paragraph.display_carousel.field_dc_primary_cta
     - field.field.paragraph.display_carousel.field_dc_secondary_cta
+    - field.field.paragraph.display_carousel.field_dc_show_scrollbar
     - field.field.paragraph.display_carousel.field_dc_subtitle
     - field.field.paragraph.display_carousel.field_dc_title_txt
     - image.style.thumbnail
@@ -21,7 +23,7 @@ bundle: display_carousel
 mode: default
 content:
   field_dc_body_copy:
-    weight: 3
+    weight: 2
     settings:
       rows: 5
       placeholder: ''
@@ -36,15 +38,14 @@ content:
     third_party_settings: {  }
     type: image_image
     region: content
-  field_dc_primary_cta:
+  field_dc_image_side:
     weight: 5
     settings:
-      placeholder_url: ''
-      placeholder_title: ''
+      display_label: true
     third_party_settings: {  }
-    type: link_default
+    type: boolean_checkbox
     region: content
-  field_dc_secondary_cta:
+  field_dc_primary_cta:
     weight: 6
     settings:
       placeholder_url: ''
@@ -52,15 +53,22 @@ content:
     third_party_settings: {  }
     type: link_default
     region: content
-  field_dc_subtitle:
-    weight: 2
+  field_dc_secondary_cta:
+    weight: 7
     settings:
-      size: 60
-      placeholder: ''
+      placeholder_url: ''
+      placeholder_title: ''
     third_party_settings: {  }
-    type: string_textfield
+    type: link_default
     region: content
-  field_dc_title_txt:
+  field_dc_show_scrollbar:
+    weight: 3
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_dc_subtitle:
     weight: 1
     settings:
       size: 60
@@ -68,6 +76,19 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_dc_title_txt:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  translation:
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   created: true
   status: true

@@ -1,47 +1,102 @@
-import React from 'react';
-import renderHTML from 'react-render-html';
+import React, { useState } from 'react';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 
-import { Container, SideLeft, SideRight, BtnWrapper } from './styles';
+import {
+  Container,
+  CarouselWrapper,
+  CarouselNavigation,
+  CarouselCtl,
+} from './styles';
 
-import BtnPrimary from '_components/BtnPrimary';
+import CarouselItem from '_components/MultipleCarousel/CarouselItem';
 
-const MultipleCarousel = ({ data }) => {
-  const {
-    field_dc_title_txt,
-    field_dc_body_copy,
-    field_dc_image: { uid, uri, alt, width, height, title },
-    field_dc_primary_cta,
-    field_dc_secondary_cta,
-  } = data;
+const MultipleCarousel = ({ data, navType }) => {
+  const [carouselItem, setCarouselItem] = useState(data[0]);
+  const [appear, setAppear] = useState(true);
+
+  function handleNavigate(id, prev = false) {
+    if (!id) return false;
+
+    let idx = 0;
+    const filtered = data.filter(el => el.id === id);
+
+    if (!filtered.length) return false;
+
+    const maxIdx = data.length;
+    let currentIdx = +data.indexOf(filtered[0]);
+
+    if (prev) {
+      if (currentIdx === 0) {
+        idx = currentIdx - 1 - 1;
+      } else {
+        idx = currentIdx - 1;
+      }
+    } else {
+      idx = currentIdx + 1;
+    }
+    idx = Math.abs(idx) % maxIdx;
+
+    setCarouselItem(data[idx]);
+  }
+
+  function handleSlide(id) {
+    const filtered = data.filter(el => +el.id === +id);
+
+    if (!filtered.length) return;
+    setCarouselItem(filtered[0]);
+    setAppear(!appear);
+  }
+
   return (
-    <Container>
-      <SideLeft>
-        <h2>{field_dc_title_txt}</h2>
-        <div>{renderHTML(field_dc_body_copy)}</div>
-        {((field_dc_primary_cta && field_dc_primary_cta.length) ||
-          (field_dc_secondary_cta && field_dc_secondary_cta.length)) && (
-          <BtnWrapper>
-            {field_dc_primary_cta && field_dc_primary_cta.length && (
-              <BtnPrimary
-                onClick={() => console.log(field_dc_primary_cta[0].uri)}
+    carouselItem && (
+      <Container>
+        <CarouselWrapper>
+          <TransitionGroup>
+            <CSSTransition
+              key={carouselItem.id}
+              timeout={500}
+              classNames="slide"
+            >
+              <CarouselItem
+                id={carouselItem.id}
+                key={String(carouselItem.id)}
+                data={carouselItem}
+                handleClick={handleNavigate}
+                navType={navType}
+              />
+            </CSSTransition>
+          </TransitionGroup>
+        </CarouselWrapper>
+        {+navType && (
+          <CarouselNavigation>
+            {data.map(item => (
+              <button
+                onClick={() => handleSlide(item.id)}
+                className={
+                  item.id === carouselItem.id
+                    ? 'carousel__name carousel__name--active'
+                    : 'carousel__name'
+                }
+                key={String(item.id)}
               >
-                {field_dc_primary_cta[0].title}
-              </BtnPrimary>
-            )}
-            {field_dc_secondary_cta && field_dc_secondary_cta.length && (
-              <BtnPrimary
-                onClick={() => console.log(field_dc_secondary_cta[0].uri)}
-              >
-                {field_dc_secondary_cta[0].title}
-              </BtnPrimary>
-            )}
-          </BtnWrapper>
+                {item.field_dc_title_txt}
+              </button>
+            ))}
+          </CarouselNavigation>
         )}
-      </SideLeft>
-      <SideRight>
-        <img src={uri} alt={alt} title={title} />
-      </SideRight>
-    </Container>
+        {!+navType && (
+          <CarouselCtl>
+            <button onClick={() => handleNavigate(carouselItem.id, true)}>
+              <MdChevronLeft color="#212121" size={24}></MdChevronLeft>
+            </button>
+            <button onClick={() => handleNavigate(carouselItem.id)}>
+              <MdChevronRight color="#212121" size={24}></MdChevronRight>
+            </button>
+          </CarouselCtl>
+        )}
+      </Container>
+    )
   );
 };
 
