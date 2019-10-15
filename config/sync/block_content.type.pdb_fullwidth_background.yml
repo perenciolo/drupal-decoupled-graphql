@@ -1,0 +1,8 @@
+uuid: ca739985-d97a-4c29-afef-789feb17f2a1
+langcode: en
+status: true
+dependencies: {  }
+id: pdb_fullwidth_background
+label: 'Fullwidth Background'
+revision: 0
+description: 'Full width and height block with custom background image'

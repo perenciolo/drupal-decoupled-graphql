@@ -42,7 +42,13 @@
  * @see html.html.twig
  */
 #}
-<div class="layout-container">
+{%
+  set classes = [
+    is_front ? 'is-front' : '',
+    'layout-container',
+  ]
+%}
+<div{{attributes.addClass(classes)}}>
 
   <header role="banner">
     {{ page.primary_menu }}

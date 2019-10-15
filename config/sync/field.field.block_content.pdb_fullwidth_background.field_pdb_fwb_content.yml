@@ -1,0 +1,40 @@
+uuid: 9c1fde2a-05be-4084-85be-cdd9b3be5918
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.pdb_fullwidth_background
+    - field.storage.block_content.field_pdb_fwb_content
+    - paragraphs.paragraphs_type.pdc_generic_image_card
+  module:
+    - entity_reference_revisions
+id: block_content.pdb_fullwidth_background.field_pdb_fwb_content
+field_name: field_pdb_fwb_content
+entity_type: block_content
+bundle: pdb_fullwidth_background
+label: Content
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      pdc_generic_image_card: pdc_generic_image_card
+    target_bundles_drag_drop:
+      card_item:
+        weight: 5
+        enabled: false
+      carousel_slide:
+        weight: 6
+        enabled: false
+      display_carousel:
+        weight: 7
+        enabled: false
+      pdc_generic_image_card:
+        enabled: true
+        weight: 8
+field_type: entity_reference_revisions

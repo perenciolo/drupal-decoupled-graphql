@@ -1,0 +1,42 @@
+uuid: 81ae23de-7310-4717-98e3-456e0b611e7c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.pdc_generic_image_card.field_pdc_gci_description
+    - field.field.paragraph.pdc_generic_image_card.field_pdc_gic_image
+    - field.field.paragraph.pdc_generic_image_card.field_pdc_gic_title
+    - paragraphs.paragraphs_type.pdc_generic_image_card
+  module:
+    - image
+    - text
+id: paragraph.pdc_generic_image_card.default
+targetEntityType: paragraph
+bundle: pdc_generic_image_card
+mode: default
+content:
+  field_pdc_gci_description:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_pdc_gic_image:
+    weight: 2
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_pdc_gic_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

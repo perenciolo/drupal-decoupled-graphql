@@ -1,0 +1,18 @@
+uuid: fb09562b-5e15-42e3-9126-1916c8aac1a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.pdb_fullwidth_background
+id: block_content.pdb_fullwidth_background.info
+field_name: info
+entity_type: block_content
+bundle: pdb_fullwidth_background
+label: 'Block description'
+description: 'A brief description of your block.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

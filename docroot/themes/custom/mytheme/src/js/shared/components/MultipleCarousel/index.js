@@ -28,7 +28,7 @@ const MultipleCarousel = ({ data, navType }) => {
 
     if (prev) {
       if (currentIdx === 0) {
-        idx = currentIdx - 1 - 1;
+        idx = maxIdx - 1;
       } else {
         idx = currentIdx - 1;
       }
@@ -68,7 +68,7 @@ const MultipleCarousel = ({ data, navType }) => {
             </CSSTransition>
           </TransitionGroup>
         </CarouselWrapper>
-        {+navType && (
+        {+navType === 1 && (
           <CarouselNavigation>
             {data.map(item => (
               <button
@@ -85,7 +85,7 @@ const MultipleCarousel = ({ data, navType }) => {
             ))}
           </CarouselNavigation>
         )}
-        {!+navType && (
+        {+navType === 0 && (
           <CarouselCtl>
             <button onClick={() => handleNavigate(carouselItem.id, true)}>
               <MdChevronLeft color="#212121" size={24}></MdChevronLeft>

@@ -1,0 +1,19 @@
+uuid: 247d75ae-bada-44ea-b0a2-a679f08a9bca
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_pdc_gic_title
+    - paragraphs.paragraphs_type.pdc_generic_image_card
+id: paragraph.pdc_generic_image_card.field_pdc_gic_title
+field_name: field_pdc_gic_title
+entity_type: paragraph
+bundle: pdc_generic_image_card
+label: Title
+description: 'Maximum length of 200 characters. '
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

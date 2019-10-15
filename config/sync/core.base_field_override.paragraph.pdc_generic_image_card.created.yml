@@ -1,0 +1,18 @@
+uuid: 1e7b7659-8c6c-45e2-b2c0-23a784bce9fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.pdc_generic_image_card
+id: paragraph.pdc_generic_image_card.created
+field_name: created
+entity_type: paragraph
+bundle: pdc_generic_image_card
+label: 'Authored on'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

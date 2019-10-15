@@ -1,0 +1,31 @@
+uuid: b7361269-8f11-4f26-bcb3-589df334318b
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:pdb_fullwidth_background:e50edf18-4854-405c-8f75-ef4ee21ec837'
+  module:
+    - block_content
+    - system
+  theme:
+    - mytheme
+id: homefullpagebackground
+theme: mytheme
+region: header
+weight: 0
+provider: null
+plugin: 'block_content:e50edf18-4854-405c-8f75-ef4ee21ec837'
+settings:
+  id: 'block_content:e50edf18-4854-405c-8f75-ef4ee21ec837'
+  label: 'Home Full page Background'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

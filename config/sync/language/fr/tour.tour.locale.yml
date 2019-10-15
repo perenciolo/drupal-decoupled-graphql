@@ -1,0 +1,10 @@
+label: Traduction
+tips:
+  locale-overview:
+    label: 'Traduction de l''interface utilisateur'
+  locale-language:
+    label: 'Langue de traduction'
+  locale-search:
+    label: Rechercher
+  locale-translate:
+    label: Traduire

@@ -1,0 +1,18 @@
+uuid: 790fbc87-0a05-4ce6-8d3a-0191d97f1296
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.pdb_fullwidth_background
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: block_content.pdb_fullwidth_background
+target_entity_type_id: block_content
+target_bundle: pdb_fullwidth_background
+default_langcode: site_default
+language_alterable: true
