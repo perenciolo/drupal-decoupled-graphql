@@ -1,0 +1,22 @@
+uuid: 862f3baa-7501-4d1c-8fce-81cf0011cee4
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.pdc_generic_image_card
+id: paragraph.pdc_generic_image_card.status
+field_name: status
+entity_type: paragraph
+bundle: pdc_generic_image_card
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

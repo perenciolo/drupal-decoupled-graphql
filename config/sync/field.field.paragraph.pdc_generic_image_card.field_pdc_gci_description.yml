@@ -1,0 +1,21 @@
+uuid: 6f9583c2-5294-494e-acda-5d0e4a8da185
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_pdc_gci_description
+    - paragraphs.paragraphs_type.pdc_generic_image_card
+  module:
+    - text
+id: paragraph.pdc_generic_image_card.field_pdc_gci_description
+field_name: field_pdc_gci_description
+entity_type: paragraph
+bundle: pdc_generic_image_card
+label: Description
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

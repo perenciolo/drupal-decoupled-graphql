@@ -1,0 +1,18 @@
+uuid: ce57e393-1df2-4c18-b99c-8f4ddc137592
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.pdb_fullwidth_background
+id: block_content.pdb_fullwidth_background.changed
+field_name: changed
+entity_type: block_content
+bundle: pdb_fullwidth_background
+label: Changed
+description: 'The time that the custom block was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

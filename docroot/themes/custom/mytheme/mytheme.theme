@@ -48,3 +48,12 @@ function mytheme_preprocess_paragraph__cards_row(array &$variables) {
 
   $variables['data'] = json_encode(['content' => $content]);
 }
+
+/**
+ * Implements template_preprocess_page().
+ */
+function mytheme_preprocess_page(&$variables) {
+  if(\Drupal::service('path.matcher')->isFrontPage()) {
+    $variables['page']['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
+  }
+}

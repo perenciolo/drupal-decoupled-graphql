@@ -1,0 +1,9 @@
+uuid: 550da234-502c-44c9-9022-18418f3df87a
+langcode: en
+status: true
+dependencies: {  }
+id: pdc_generic_image_card
+label: 'Generic Image Card'
+icon_uuid: null
+description: 'Module Generic Image Card. A paragraph to display generic content that has the fields: title, image, description.'
+behavior_plugins: {  }

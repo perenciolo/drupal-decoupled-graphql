@@ -1,0 +1,25 @@
+uuid: 33993385-b92d-436e-9047-233abb0da91c
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.pdb_fullwidth_background
+    - field.field.block_content.pdb_fullwidth_background.field_pdb_fwb_content
+  module:
+    - entity_reference_revisions
+id: block_content.pdb_fullwidth_background.default
+targetEntityType: block_content
+bundle: pdb_fullwidth_background
+mode: default
+content:
+  field_pdb_fwb_content:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true

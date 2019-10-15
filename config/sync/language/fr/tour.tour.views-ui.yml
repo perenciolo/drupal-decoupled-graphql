@@ -1,0 +1,9 @@
+tips:
+  views-ui-format:
+    label: 'Format de sortie'
+  views-ui-fields:
+    label: Champs
+  views-ui-sorts:
+    label: 'Critère de tri'
+  views-ui-preview:
+    label: Aperçu

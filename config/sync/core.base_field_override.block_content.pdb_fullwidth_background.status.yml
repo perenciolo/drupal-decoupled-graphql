@@ -1,0 +1,22 @@
+uuid: cc893fa0-b373-49a1-bf79-bd8b7e3cfb64
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.pdb_fullwidth_background
+id: block_content.pdb_fullwidth_background.status
+field_name: status
+entity_type: block_content
+bundle: pdb_fullwidth_background
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

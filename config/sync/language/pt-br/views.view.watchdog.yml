@@ -1,0 +1,51 @@
+label: Cão-de-guarda
+description: 'Mensagens recentes do registro'
+display:
+  default:
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Filtrar
+          reset_button_label: Reiniciar
+          exposed_sorts_label: 'Ordenar por'
+          sort_asc_label: Ascendente
+          sort_desc_label: Decrescente
+      pager:
+        options:
+          expose:
+            items_per_page_label: 'Itens por página'
+            items_per_page_options_all_label: '- Tudo -'
+            offset_label: Offset
+          tags:
+            previous: ‹‹
+            next: ››
+      fields:
+        nothing:
+          admin_label: Ícone
+        severity:
+          label: Severidade
+        type:
+          label: Tipo
+        timestamp:
+          label: Data
+        message:
+          label: Mensagem
+        name:
+          label: Usuário
+          separator: ', '
+        link:
+          label: Operações
+      filters:
+        type:
+          expose:
+            label: Tipo
+        severity:
+          expose:
+            label: Severidade
+      title: 'Mensagens recentes do registro'
+      empty:
+        area:
+          admin_label: 'Não há registros a exibir.'
+          content: 'Não há registros a exibir.'
+  page:
+    display_title: Página
