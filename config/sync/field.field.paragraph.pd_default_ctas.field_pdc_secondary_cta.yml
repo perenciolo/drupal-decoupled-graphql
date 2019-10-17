@@ -1,0 +1,23 @@
+uuid: f37cadf0-2f44-464d-a0e9-e8b8a2baaf47
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_pdc_secondary_cta
+    - paragraphs.paragraphs_type.pd_default_ctas
+  module:
+    - link
+id: paragraph.pd_default_ctas.field_pdc_secondary_cta
+field_name: field_pdc_secondary_cta
+entity_type: paragraph
+bundle: pd_default_ctas
+label: 'Secondary CTA'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

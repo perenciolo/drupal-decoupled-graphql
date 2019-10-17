@@ -31,6 +31,7 @@ module:
   graphql: 0
   graphql_core: 0
   help: 0
+  hero_card: 0
   history: 0
   image: 0
   kint: 0

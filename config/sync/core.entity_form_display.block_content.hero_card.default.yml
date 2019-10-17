@@ -1,0 +1,63 @@
+uuid: 67f714a8-42a9-42ae-a2ed-25332e0151fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.hero_card
+    - field.field.block_content.hero_card.field_hc_ctas
+    - field.field.block_content.hero_card.field_hc_show_scrollbar
+    - field.field.block_content.hero_card.field_pd_gci_content
+  module:
+    - paragraphs
+id: block_content.hero_card.default
+targetEntityType: block_content
+bundle: hero_card
+mode: default
+content:
+  field_hc_ctas:
+    type: entity_reference_paragraphs
+    weight: 28
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_hc_show_scrollbar:
+    weight: 27
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_pd_gci_content:
+    type: entity_reference_paragraphs
+    weight: 26
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden: {  }

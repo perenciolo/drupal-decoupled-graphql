@@ -1,14 +1,13 @@
 import styled from 'styled-components';
+
 import { device } from '_shared/variables/devices';
+import { colors } from '_shared/variables/colors';
 
 export const Container = styled.div`
   height: 100%;
   width: 100%;
 
-  @media ${device.laptop} { 
-    /* -> "@media (min-width: ${
-      size.laptop
-    })" -> "@media (min-width: 1024px)" */
+  @media ${device.laptop} {
     display: flex;
     justify-content: center;
     flex: 1 0 100%;
@@ -19,6 +18,8 @@ export const Container = styled.div`
 export const SideLeft = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
   color: #545454;
 
   @media ${device.laptop} {
@@ -36,6 +37,11 @@ export const SideLeft = styled.div`
       padding-left: ${props => (+props.imgSide.value ? '0' : '50px')};
     }
   }
+`;
+
+export const Wrapper = styled.div`
+  max-height: 500px;
+  overflow: hidden;
 `;
 
 export const ScrollWrapper = styled.div`
@@ -68,12 +74,12 @@ export const ScrollWrapper = styled.div`
         }
 
         &::-webkit-scrollbar-thumb {
-          background: #ca001b;
+          background: ${colors.red};
           border-radius: 4px;
         }
 
         &::-webkit-scrollbar-thumb:hover {
-          background: #ca001b;
+          background: ${colors.red};
         }
 
         &::-webkit-scrollbar-thumb {
@@ -81,7 +87,7 @@ export const ScrollWrapper = styled.div`
         }
 
         &::-webkit-scrollbar-track-piece {
-          background-color: #ddd;
+          background-color: ${colors.offWhite};
           border-radius: 4px;
         }
         `;
@@ -118,6 +124,7 @@ export const SideRight = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   flex: 1;
 `;
 

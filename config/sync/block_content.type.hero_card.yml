@@ -1,0 +1,8 @@
+uuid: 9c507d81-4413-4727-a82f-c11476d09a64
+langcode: en
+status: true
+dependencies: {  }
+id: hero_card
+label: 'Hero Card'
+revision: 0
+description: 'Progressive decoupled initiative, Hero Card block'

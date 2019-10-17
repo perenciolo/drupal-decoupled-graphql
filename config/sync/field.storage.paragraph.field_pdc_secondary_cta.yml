@@ -1,0 +1,19 @@
+uuid: 4a3a55dd-128c-4ad0-9ecd-c24ce8f9f097
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - paragraphs
+id: paragraph.field_pdc_secondary_cta
+field_name: field_pdc_secondary_cta
+entity_type: paragraph
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 2
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

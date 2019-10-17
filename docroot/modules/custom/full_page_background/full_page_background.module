@@ -34,7 +34,6 @@ function full_page_background_theme($existing, $type, $theme, $path)
     ];
 }
 
-
 /**
  * Implements template_preprocess_block().
  */
@@ -79,12 +78,11 @@ function full_page_background_preprocess_block(&$variables) {
 
         if (!empty($paragraphs)) {
           foreach ($paragraphs as $index => $paragraph) {
-            
             if (!$paragraph instanceof Paragraph) {
               continue;
             }
 
-            if($paragraph->getType() 
+            if($paragraph->getType()
               && $paragraph->getType() === 'pdc_generic_image_card') {
                 $target_id = $paragraph->id();
                 $paragraph =Paragraph::load($target_id);
@@ -93,18 +91,18 @@ function full_page_background_preprocess_block(&$variables) {
                 $img_path = $img->entity && $img->entity->fid->value ? File::load($img->entity->fid->value)->url() : null;
 
                 $data = [
-                  "id" => $target_id, 
-                  "field_pdc_gci_description" => $paragraph->field_pdc_gci_description->value, 
+                  "id" => $target_id,
+                  "field_pdc_gci_description" => $paragraph->field_pdc_gci_description->value,
                   "field_pdc_gic_image" => [
                     "url" => $img_path,
                     'alt' => count($img->getValue()) ? $img->getValue()[0]['alt'] : '',
                     'width' => count($img->getValue()) ? $img->getValue()[0]['width'] : '',
                     'height' => count($img->getValue()) ? $img->getValue()[0]['height'] : '',
                     "title" => count($img->getValue()) ? $img->getValue()[0]['title'] : '',
-                  ], 
+                  ],
                   "field_pdc_gic_title" => $paragraph->field_pdc_gic_title->value,
                 ];
-                
+
                 // Encode data for React.
                 $variables['data'] = json_encode([
                   'content' => $data

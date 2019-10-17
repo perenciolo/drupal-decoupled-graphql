@@ -15,10 +15,6 @@ display:
           expose:
             items_per_page_label: 'Itens por página'
             items_per_page_options_all_label: '- Tudo -'
-            offset_label: Offset
-          tags:
-            previous: ‹‹
-            next: ››
   block_1:
     display_title: Bloco
   page_1:

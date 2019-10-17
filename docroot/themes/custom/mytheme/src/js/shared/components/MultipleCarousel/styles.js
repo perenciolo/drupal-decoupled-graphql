@@ -1,5 +1,7 @@
 import styled from 'styled-components';
+
 import { device } from '_shared/variables/devices';
+import { colors } from '_shared/variables/colors';
 
 export const Container = styled.div`
   padding: 25px;
@@ -62,7 +64,7 @@ export const CarouselWrapper = styled.div`
 
 export const CarouselNavigation = styled.div`
   padding-top: 50px;
-  color: #63666a;
+  color: ${colors.grey};
 
   .carousel__name {
     position: relative;
@@ -87,14 +89,14 @@ export const CarouselNavigation = styled.div`
       bottom: 0;
       width: 4px;
       height: 100%;
-      background: #ddd;
+      background: ${colors.offWhite};
       border-radius: 4px;
     }
 
     &--active {
-      color: #ca001b;
+      color: ${colors.red};
       &:before {
-        background: #ca001b;
+        background: ${colors.red};
       }
     }
   }
@@ -110,7 +112,7 @@ export const CarouselCtl = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #63666a;
+    border: 1px solid ${colors.grey};
     border-radius: 0;
     background: transparent;
 

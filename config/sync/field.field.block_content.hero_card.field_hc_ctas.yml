@@ -1,0 +1,43 @@
+uuid: 4a5dee4b-19a3-436b-ad24-f2ddba1ba9cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.hero_card
+    - field.storage.block_content.field_hc_ctas
+    - paragraphs.paragraphs_type.pd_default_ctas
+  module:
+    - entity_reference_revisions
+id: block_content.hero_card.field_hc_ctas
+field_name: field_hc_ctas
+entity_type: block_content
+bundle: hero_card
+label: CTAS
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      pd_default_ctas: pd_default_ctas
+    target_bundles_drag_drop:
+      pd_default_ctas:
+        enabled: true
+        weight: 6
+      card_item:
+        weight: 7
+        enabled: false
+      carousel_slide:
+        weight: 8
+        enabled: false
+      display_carousel:
+        weight: 9
+        enabled: false
+      pdc_generic_image_card:
+        weight: 10
+        enabled: false
+field_type: entity_reference_revisions

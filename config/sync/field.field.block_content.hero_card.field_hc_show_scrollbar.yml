@@ -1,0 +1,23 @@
+uuid: 2e9cb243-20aa-4bdb-bee2-f3f72bfd078f
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.hero_card
+    - field.storage.block_content.field_hc_show_scrollbar
+id: block_content.hero_card.field_hc_show_scrollbar
+field_name: field_hc_show_scrollbar
+entity_type: block_content
+bundle: hero_card
+label: 'Show Scrollbar'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: Show
+  off_label: Hide
+field_type: boolean

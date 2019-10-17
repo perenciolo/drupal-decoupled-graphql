@@ -1,0 +1,9 @@
+uuid: 3ff3201f-4cca-47dd-8ca7-d81a73675614
+langcode: en
+status: true
+dependencies: {  }
+id: pd_default_ctas
+label: CTAS
+icon_uuid: null
+description: 'Paragraph type that contains one primary and up to two secondary CTA.'
+behavior_plugins: {  }

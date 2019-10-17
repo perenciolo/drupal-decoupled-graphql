@@ -1,0 +1,18 @@
+uuid: 34cfa71e-6177-4500-9312-c474eaf994cb
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.pd_default_ctas
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: paragraph.pd_default_ctas
+target_entity_type_id: paragraph
+target_bundle: pd_default_ctas
+default_langcode: site_default
+language_alterable: true

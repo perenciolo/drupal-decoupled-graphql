@@ -1,0 +1,39 @@
+uuid: 37331dc4-09c4-4f71-9e7a-7e981d3c4c8a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.pd_default_ctas.field_pdc_primary_cta
+    - field.field.paragraph.pd_default_ctas.field_pdc_secondary_cta
+    - paragraphs.paragraphs_type.pd_default_ctas
+  module:
+    - link
+id: paragraph.pd_default_ctas.default
+targetEntityType: paragraph
+bundle: pd_default_ctas
+mode: default
+content:
+  field_pdc_primary_cta:
+    weight: 0
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_pdc_secondary_cta:
+    weight: 11
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  translation:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  status: true

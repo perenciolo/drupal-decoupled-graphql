@@ -7,6 +7,7 @@ import {
   SideRight,
   BtnWrapper,
   ScrollWrapper,
+  Wrapper,
 } from './styles';
 
 import BtnPrimary from '_components/BtnPrimary';
@@ -26,36 +27,38 @@ const CarouselItem = ({ data, handleClick, navType }) => {
   return (
     <Container imgSide={field_dc_image_side}>
       <SideLeft imgSide={field_dc_image_side}>
-        <h2>{field_dc_title_txt}</h2>
-        <ScrollWrapper
-          showScrollbar={field_dc_show_scrollbar}
-          imgRight={field_dc_image_side}
-        >
-          {renderHTML(field_dc_body_copy)}
-        </ScrollWrapper>
-        {((field_dc_primary_cta && field_dc_primary_cta.length) ||
-          (field_dc_secondary_cta && field_dc_secondary_cta.length)) && (
-          <BtnWrapper imgRight={field_dc_image_side}>
-            {field_dc_primary_cta && field_dc_primary_cta.length && (
-              <BtnPrimary
-                bg="#ca001b"
-                onClick={() => console.log(field_dc_primary_cta[0].uri)}
-              >
-                {field_dc_primary_cta[0].title}
-              </BtnPrimary>
-            )}
-            {field_dc_secondary_cta && field_dc_secondary_cta.length && (
-              <BtnPrimary
-                bg="transparent"
-                color="#ca001b"
-                outline
-                onClick={() => console.log(field_dc_secondary_cta[0].uri)}
-              >
-                {field_dc_secondary_cta[0].title}
-              </BtnPrimary>
-            )}
-          </BtnWrapper>
-        )}
+        <Wrapper>
+          <h2>{field_dc_title_txt}</h2>
+          <ScrollWrapper
+            showScrollbar={field_dc_show_scrollbar}
+            imgRight={field_dc_image_side}
+          >
+            {renderHTML(field_dc_body_copy)}
+          </ScrollWrapper>
+          {((field_dc_primary_cta && field_dc_primary_cta.length) ||
+            (field_dc_secondary_cta && field_dc_secondary_cta.length)) && (
+            <BtnWrapper imgRight={field_dc_image_side}>
+              {field_dc_primary_cta && field_dc_primary_cta.length && (
+                <BtnPrimary
+                  bg="#ca001b"
+                  onClick={() => console.log(field_dc_primary_cta[0].uri)}
+                >
+                  {field_dc_primary_cta[0].title}
+                </BtnPrimary>
+              )}
+              {field_dc_secondary_cta && field_dc_secondary_cta.length && (
+                <BtnPrimary
+                  bg="transparent"
+                  color="#ca001b"
+                  outline
+                  onClick={() => console.log(field_dc_secondary_cta[0].uri)}
+                >
+                  {field_dc_secondary_cta[0].title}
+                </BtnPrimary>
+              )}
+            </BtnWrapper>
+          )}
+        </Wrapper>
       </SideLeft>
       <SideRight>
         {uri && (

@@ -9,9 +9,6 @@ display:
           exposed_sorts_label: 'Ordenar por'
           sort_asc_label: Ascendente
           sort_desc_label: Decrescente
-      fields:
-        changed:
-          separator: ', '
       title: 'Conteúdo recente'
       empty:
         area_text_custom:

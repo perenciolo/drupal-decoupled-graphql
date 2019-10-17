@@ -1,0 +1,7 @@
+{% if data %}
+  {% set classes = [
+    'block__hero-card--wrapper',
+  ]%}
+  {{ attach_library('hero_card/default') }}
+  <div{{attributes.addClass(classes)}} data-src='{{ data }}'></div>
+{% endif %}

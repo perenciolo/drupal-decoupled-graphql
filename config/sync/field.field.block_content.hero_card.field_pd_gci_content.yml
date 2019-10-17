@@ -1,0 +1,40 @@
+uuid: 9a453005-1c47-4c8d-a9e5-9cde4e0b9050
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.hero_card
+    - field.storage.block_content.field_pd_gci_content
+    - paragraphs.paragraphs_type.pdc_generic_image_card
+  module:
+    - entity_reference_revisions
+id: block_content.hero_card.field_pd_gci_content
+field_name: field_pd_gci_content
+entity_type: block_content
+bundle: hero_card
+label: Content
+description: 'Title, description and Image content to hero.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      pdc_generic_image_card: pdc_generic_image_card
+    target_bundles_drag_drop:
+      card_item:
+        weight: 5
+        enabled: false
+      carousel_slide:
+        weight: 6
+        enabled: false
+      display_carousel:
+        weight: 7
+        enabled: false
+      pdc_generic_image_card:
+        enabled: true
+        weight: 8
+field_type: entity_reference_revisions

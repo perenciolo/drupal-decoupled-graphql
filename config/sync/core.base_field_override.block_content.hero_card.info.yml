@@ -1,0 +1,18 @@
+uuid: 4f8a818e-2ecc-4b21-b518-2beaa88bae3d
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.hero_card
+id: block_content.hero_card.info
+field_name: info
+entity_type: block_content
+bundle: hero_card
+label: 'Block description'
+description: 'A brief description of your block.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
