@@ -1,0 +1,62 @@
+$header_height: 100px;
+$header_mobile_height: 72px;
+
+$page_gutter: 60px; // On each side of page
+$mobile_gutter: 30px; // On each side of page
+$column_gutter: 15px; // On each side of column
+
+$block_spacing: 50px;
+$block_mobile_spacing: 25px;
+
+@mixin container() {
+  @include clearfix();
+  padding-left: $mobile_gutter;
+  padding-right: $mobile_gutter;
+  width: 100%;
+
+  @include breakpoint('md') {
+    padding-left: $page_gutter;
+    padding-right: $page_gutter;
+  }
+}
+
+@mixin container-widen() {
+  margin-left: -($mobile_gutter);
+  margin-right: -($mobile_gutter);
+
+  @include breakpoint('md') {
+    margin-left: -($page_gutter);
+    margin-right: -($page_gutter);
+  }
+}
+
+@mixin column() {
+  min-height: 1px;
+  padding-left: $column_gutter;
+  padding-right: $column_gutter;
+}
+
+@mixin column-widen() {
+  margin-left: -($column_gutter);
+  margin-right: -($column_gutter);
+}
+
+@mixin top-bottom-padding() {
+  padding-bottom: $block_mobile_spacing;
+  padding-top: $block_mobile_spacing;
+
+  @include breakpoint('md') {
+    padding-bottom: $block_spacing;
+    padding-top: $block_spacing;
+  }
+}
+
+@mixin top-bottom-margin() {
+  margin-bottom: $block_mobile_spacing;
+  margin-top: $block_mobile_spacing;
+
+  @include breakpoint('md') {
+    margin-bottom: $block_spacing;
+    margin-top: $block_spacing;
+  }
+}

@@ -1,4 +1,4 @@
-import '../scss/style.scss';
+import '_src/scss/style.scss';
 import HelloComponent from '_shared/HelloComponent';
 
 (function($, Drupal) {
@@ -8,6 +8,6 @@ import HelloComponent from '_shared/HelloComponent';
         const component = new HelloComponent('mytheme');
         component.sayHello();
       }
-    }
+    },
   };
 })(jQuery, Drupal);

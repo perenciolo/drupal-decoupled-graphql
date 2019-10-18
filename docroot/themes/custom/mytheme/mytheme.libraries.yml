@@ -1,13 +1,13 @@
 cards-row:
   js:
-   assets/js/cards-row.js: {}
+    src/js/cards-row.compiled.js: {}
 
 global-styling:
   css:
     theme:
-      assets/css/style.min.css: {}
+      src/css/mytheme.min.css: {}
   js:
-    assets/js/mytheme.js: {}
+    src/js/mytheme.compiled.js: {}
   dependencies:
     - core/jquery
     - core/drupal

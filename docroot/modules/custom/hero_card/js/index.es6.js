@@ -1,7 +1,10 @@
+import '../scss/styles.scss';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 
 // import { GlobalStyle } from '_components/FullPageBanner/styles';
+import HeroCard from '_components/HeroCard';
 
 (function($, Drupal) {
   Drupal.behaviors.mytheme = {
@@ -14,13 +17,7 @@ import ReactDOM from 'react-dom';
             const data = $(this).data('src').content || null;
 
             $(this).length
-              ? ReactDOM.render(
-                  <>
-                    {/* <GlobalStyle /> */}
-                    {/* <FullPageBanner data={data} /> */}
-                  </>,
-                  $(this)[0]
-                )
+              ? ReactDOM.render(<HeroCard data={data} />, $(this)[0])
               : false;
           });
         }

@@ -11,7 +11,7 @@ const matchesInModules = glob.sync(`${modulePath}/*/js/*.es6.js`);
 // ES6 JS in the custom theme.
 const themePath = path.resolve(__dirname, 'docroot/themes/custom/mytheme');
 const themeSrcPath = path.resolve(__dirname, `${themePath}/src/js`);
-const themeDistPath = path.resolve(__dirname, `${themePath}/assets/js`);
+const sharedModules = path.resolve(__dirname, `${rootDir}/shared`);
 const matchesInTheme = glob.sync(`${themeSrcPath}/*.js`);
 
 // const fileEntry = {};
@@ -66,8 +66,8 @@ const moduleJsOutputPath = filePath => {
  */
 const themeJsOutputPath = filePath => {
   const fileName = path.basename(filePath);
-  const relativeDir = path.relative(rootDir, themeDistPath);
-  const newFilePath = `${relativeDir}/${fileName}`;
+  const relativeDir = path.relative(rootDir, themeSrcPath);
+  const newFilePath = `${relativeDir}/dist/${fileName}`;
   return newFilePath;
 };
 
@@ -121,11 +121,31 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'docroot/themes/custom/mytheme/assets/css/style.min.css',
+      moduleFilename: ({ name }) => {
+        // Save in module folder
+        const inModuleCssName =
+          name.replace('/js/', '/css/').replace('.js', '') + '.css';
+
+        if (inModuleCssName.includes(modulePath)) {
+          return inModuleCssName.replace('/app/', '').replace('.es6', '');
+        }
+
+        // Save in theme folder
+        return `${name
+          .replace('/js/', '/css/')
+          .replace('/app/', '')
+          .replace('.js', '')}.min.css`;
+      },
     }),
   ],
   resolve: {
     alias: {
+      // 'styled-components': path.resolve(
+      //   rootDir,
+      //   'node_modules',
+      //   'styled-components'
+      // ),
+      _src: sharedModules,
       _shared: path.resolve(themeSrcPath, 'shared'),
       _components: path.resolve(themeSrcPath, 'shared', 'components'),
     },
