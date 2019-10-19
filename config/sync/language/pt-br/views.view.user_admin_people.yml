@@ -18,12 +18,14 @@ display:
           expose:
             items_per_page_label: 'Itens por página'
             items_per_page_options_all_label: '- Tudo -'
+            offset_label: Offset
       fields:
         user_bulk_form:
           label: 'Atualização em massa'
         name:
           label: Usuário
         status:
+          label: Status
           settings:
             format_custom_true: Ativo
             format_custom_false: Bloqueado
@@ -35,9 +37,12 @@ display:
           label: 'Último acesso'
         operations:
           label: Operações
+        mail:
+          separator: ', '
       filters:
         status:
           group_info:
+            label: Status
             group_items:
               1:
                 title: Ativo

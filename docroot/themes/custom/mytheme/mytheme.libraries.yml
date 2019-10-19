@@ -7,7 +7,7 @@ global-styling:
     theme:
       src/css/mytheme.min.css: {}
   js:
-    src/js/mytheme.compiled.js: {}
+    src/js/dist/mytheme.js: {}
   dependencies:
     - core/jquery
     - core/drupal

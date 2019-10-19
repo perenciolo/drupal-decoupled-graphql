@@ -19,10 +19,10 @@ content:
   field_pdc_gci_description:
     weight: 1
     settings:
-      size: 60
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: text_textfield
+    type: text_textarea
     region: content
   field_pdc_gic_image:
     weight: 2

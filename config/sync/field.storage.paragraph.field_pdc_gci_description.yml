@@ -1,4 +1,4 @@
-uuid: 2171bf96-c785-4b27-86ba-dfe553dc523d
+uuid: 95796e87-c832-4894-98bb-71e226de7930
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,8 @@ dependencies:
 id: paragraph.field_pdc_gci_description
 field_name: field_pdc_gci_description
 entity_type: paragraph
-type: text
-settings:
-  max_length: 400
+type: text_long
+settings: {  }
 module: text
 locked: false
 cardinality: 1

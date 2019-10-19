@@ -14,8 +14,11 @@ display:
           expose:
             items_per_page_label: 'Itens por página'
             items_per_page_options_all_label: '- Tudo -'
+            offset_label: Offset
           tags:
             previous: '‹ Voltar'
             next: 'Avançar ›'
+  feed_1:
+    display_title: Feed
   page_1:
     display_title: Página

@@ -7,7 +7,7 @@ const CardComponent = ({ title, desc, columns }) => {
 
   return (
     <div className="card-row-item" className={classes}>
-      <h2 className="card-item-title">{title}</h2>
+      <h6 className="card-item-title">{title}</h6>
       <div className="card-item-desc">{renderHTML(desc)}</div>
     </div>
   );

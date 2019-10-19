@@ -1,4 +1,4 @@
-uuid: b7361269-8f11-4f26-bcb3-589df334318b
+uuid: e885ec88-0585-4c58-bcc3-ccda5c76e939
 langcode: en
 status: true
 dependencies:
@@ -19,7 +19,7 @@ settings:
   id: 'block_content:e50edf18-4854-405c-8f75-ef4ee21ec837'
   label: 'Home Full page Background'
   provider: block_content
-  label_display: '0'
+  label_display: visible
   status: true
   info: ''
   view_mode: full

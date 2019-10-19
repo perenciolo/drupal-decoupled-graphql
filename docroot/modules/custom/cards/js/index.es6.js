@@ -1,22 +1,22 @@
-import '../scss/styles.scss';
+import '../scss/style.scss';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import HeroCard from '_components/HeroCard';
+import CardsRow from '_components/CardsRow';
 
 (function($, Drupal) {
-  Drupal.behaviors.heroCard = {
+  Drupal.behaviors.cardsRow = {
     attach(context) {
       if (context === document) {
-        const wrapper = $('.block__hero-card--wrapper');
+        const wrapper = $('.block__cards--wrapper');
 
         if (wrapper.length) {
           wrapper.each(function() {
             const data = $(this).data('src').content || null;
 
             $(this).length
-              ? ReactDOM.render(<HeroCard data={data} />, $(this)[0])
+              ? ReactDOM.render(<CardsRow data={data} />, $(this)[0])
               : false;
           });
         }

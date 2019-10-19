@@ -1,0 +1,112 @@
+<?php
+/**
+ * @file
+ * Module `cards` hooks file.
+ */
+
+ use Drupal\file\Entity\File;
+ use Drupal\paragraphs\Entity\Paragraph;
+ use Drupal\Component\Utility\Html;
+ use Drupal\Core\Url;
+ use Drupal\Component\Utility\UrlHelper;
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+ function cards_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+   if (isset($variables['elements']['content']['#block_content'])) {
+    array_splice($suggestions, 1, 0, 'block__bundle__' . $variables['elements']['content']['#block_content']->bundle());
+  }
+}
+
+ /**
+ * Implements hook_theme().
+ */
+function cards_theme($existing, $type, $theme, $path)
+{
+    $templ_path = $path . '/templates/';
+
+    return [
+      'block__bundle__cards' => [
+        'render element' => 'elements',
+        'template' => 'block--bundle--cards',
+        'path' => $templ_path . 'block',
+        'base hook' => 'block',
+      ],
+    ];
+}
+
+/**
+ * Implements template_preprocess_block().
+ */
+function cards_preprocess_block(&$variables) {
+  if (!empty($variables['content']['#block_content'])) {
+    $language_manager = \Drupal::languageManager();
+    $context = [
+      'langcode' => $language_manager->getCurrentLanguage()->getId(),
+      'operation' => 'language_hierarchy_update_priorities',
+    ];
+    $fallback_candidates = $language_manager->getFallbackCandidates($context);
+    $hasTranslation = FALSE;
+
+    $blockEntity = $variables['content']['#block_content'];
+
+    foreach ($fallback_candidates as $fallback_canditate) {
+      if ($blockEntity->hasTranslation($fallback_canditate)) {
+        $hasTranslation = TRUE;
+        break;
+      }
+    }
+
+    if (!$hasTranslation) {
+      // Remove content when it doesn't have a translation.
+      $variables['content'] = NULL;
+      return FALSE;
+    }
+
+    $block_bundle = $variables['content']['#block_content']->bundle();
+    $variables['attributes']['class'][] = 'block--block-content--' . Html::cleanCssIdentifier($block_bundle);
+
+    if ($variables['label'] !== '') {
+      $variables['label'] = $variables['content']['#block_content']->label();
+    }
+
+    if (!$block_bundle) {
+      return FALSE;
+    }
+
+    $block = $variables['content']['#block_content'];
+
+    if ($block_bundle == 'cards') {
+
+      $data['field_card_title'] = $block->get('field_card_title')->value;
+      $data['field_card_description'] = $block->get('field_card_description')->value;
+      $cols = $block->get('field_card_columns')->value;
+      $data['field_card_columns'] = $cols ? $cols : 1;
+      $paragraphs = $block->get('field_card_item')->referencedEntities();
+
+      if(isset($paragraphs) && !empty($paragraphs)) {
+        foreach ($paragraphs as $index => $paragraph) {
+          if (!$paragraph instanceof Paragraph) {
+            continue;
+          }
+          
+          if($paragraph->getType()
+            && $paragraph->getType() === 'card_item') {
+            $target_id = $paragraph->id();
+            $paragraph =Paragraph::load($target_id);
+            $data['field_card_item'][] = [
+              "id" => $target_id,
+              "field_card_description" => $paragraph->get('field_card_description')->value,
+              "field_card_title" => $paragraph->get('field_card_title')->value,
+            ];
+          }
+        }
+      }
+
+      $variables['data'] = json_encode([
+        'content' => $data
+      ]);
+    }
+  }
+}

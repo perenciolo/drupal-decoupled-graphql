@@ -5,6 +5,7 @@ dependencies:
   config:
     - block_content.type.hero_card
     - field.field.block_content.hero_card.field_hc_ctas
+    - field.field.block_content.hero_card.field_hc_show_image_on_right
     - field.field.block_content.hero_card.field_hc_show_scrollbar
     - field.field.block_content.hero_card.field_pd_gci_content
   module:
@@ -16,15 +17,25 @@ mode: default
 content:
   field_hc_ctas:
     type: entity_reference_revisions_entity_view
-    weight: 2
+    weight: 3
     label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
     region: content
-  field_hc_show_scrollbar:
+  field_hc_show_image_on_right:
     weight: 1
+    label: hidden
+    settings:
+      format: boolean
+      format_custom_true: ''
+      format_custom_false: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_hc_show_scrollbar:
+    weight: 2
     label: hidden
     settings:
       format: boolean

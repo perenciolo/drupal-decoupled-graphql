@@ -1,7 +1,109 @@
-@import '_src/scss/vendors/_bootstrap.scss';
-@import '_src/scss/variables/_variables.scss';
-@import '_src/scss/variables/_colors.scss';
-@import '_src/scss/variables/_mixins.scss';
-@import '_src/scss/variables/_typograph.scss';
-@import '_src/scss/variables/_layout.scss';
-@import '_src/scss/organisms/_hero-card.scss';
+@import '_src/scss/variables/index.scss';
+
+.block__hero-card--wrapper {
+  .container {
+    @include container;
+    @include top-bottom-padding;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+
+    .side {
+      &-left,
+      &-right {
+        flex: 1 0;
+      }
+
+      &-left {
+        > .wrapper {
+          @include breakpoint('md') {
+            margin-right: 50px;
+          }
+        }
+
+        .show-scrollbar {
+          @include breakpoint('md') {
+            @include scrollbarcustom(#000, '100', #efeff0);
+          }
+        }
+
+        .btn_wrapper {
+          padding-top: px-to-rem(25);
+          display: flex;
+          flex-wrap: wrap;
+
+          @include breakpoint('lg') {
+            width: 60%;
+          }
+
+          .cta {
+            &--primary,
+            &--secondary {
+              display: inline-flex;
+              align-items: center;
+              align-content: space-around;
+              justify-content: center;
+              font-weight: bold;
+              padding: 10px;
+              text-decoration: none;
+              border: 1px solid orangered;
+              flex: 1 0 100%;
+              background: orangered;
+              color: $global-white;
+
+              @include breakpoint('md') {
+                flex-basis: 150px;
+                max-width: 250px;
+              }
+            }
+
+            &--secondary {
+              margin-left: px-to-rem(20);
+              border: 1px solid orangered;
+              color: orangered;
+              background: transparent;
+            }
+
+            &__block {
+              flex: 1 1 100%;
+              max-width: initial;
+
+              &--secondary {
+                margin-left: 0;
+                margin-top: 2rem;
+
+                + .cta__block--secondary {
+                  @include breakpoint('md') {
+                    margin-left: px-to-rem(20);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &-right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    @include breakpoint('md') {
+      flex-wrap: nowrap;
+      flex-direction: row;
+
+      &.reverse {
+        flex-direction: row-reverse;
+
+        > .side-left {
+          > .wrapper {
+            margin-right: 0;
+            margin-left: 50px;
+          }
+        }
+      }
+    }
+  }
+}

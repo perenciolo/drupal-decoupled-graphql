@@ -1,0 +1,74 @@
+/**
+*   Visually hide text within an element
+*   Used mostly for accessibility reasons
+*
+*   No Params
+*
+*   Example Usage:
+*
+*     button {
+*       span {
+*         @include visuallyhidden;
+*       }
+*     }
+*
+*/
+/**
+*  This mixin should be used to declare specific properties
+*  to resolve Internet Explorer compatibility issues.
+*/
+/* Media Orientation max-width and orientation {portrait or landscape} */
+@media (max-width: 767px) {
+  .really-long-text {
+    /* These are technically the same, but use both */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    /* This is the dangerous one in WebKit, as it breaks things wherever */
+    /* Instead use this non-standard one: */
+    word-break: break-word; } }
+
+.cards-row {
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 100%;
+  padding-bottom: 25px;
+  padding-top: 25px; }
+  .cards-row:after {
+    content: '';
+    display: block;
+    clear: both; }
+  @media (min-width: 992px) {
+    .cards-row {
+      padding-left: 60px;
+      padding-right: 60px; } }
+  @media (min-width: 992px) {
+    .cards-row {
+      padding-bottom: 50px;
+      padding-top: 50px; } }
+
+.cards-desc {
+  margin: 2rem auto 0; }
+
+.cards-wrapper {
+  display: flex;
+  margin: auto -15px;
+  flex-wrap: wrap; }
+  .cards-wrapper > *[class^='is-'] {
+    margin: 2rem auto; }
+
+.card-item-title {
+  text-transform: unset;
+  font-weight: bold;
+  line-height: 0;
+  padding: 2.5rem 0;
+  margin: 0; }
+
+.card-item-desc {
+  font-size: 1.6rem;
+  line-height: 1.5; }
+  @media (min-width: 992px) {
+    .card-item-desc {
+      width: 90%; } }
+
+
+/*# sourceMappingURL=index.css.map*/

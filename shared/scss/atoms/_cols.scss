@@ -1,9 +1,14 @@
 .is {
   @for $i from 1 through 4 {
     &-#{$i} {
-      flex: 1 1 (100 / $i) * 1%;
-      max-width: (100 / $i) * 1%;
-      padding: 0 20px;
+      flex: 1 0 auto;
+      padding: 0 15px;
+      max-width: 100%;
+
+      @include breakpoint('md') {
+        flex: 1 0 (100 / $i) * 1%;
+        max-width: (100 / $i) * 1%;
+      }
     }
   }
 }

@@ -15,6 +15,10 @@ display:
           expose:
             items_per_page_label: 'Itens por página'
             items_per_page_options_all_label: '- Tudo -'
+            offset_label: Offset
+          tags:
+            previous: ‹‹
+            next: ››
       fields:
         nothing:
           admin_label: Ícone
@@ -28,6 +32,7 @@ display:
           label: Mensagem
         name:
           label: Usuário
+          separator: ', '
         link:
           label: Operações
       filters:

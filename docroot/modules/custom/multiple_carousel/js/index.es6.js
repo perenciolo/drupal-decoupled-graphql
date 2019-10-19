@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import MultipleCarousel from '_components/MultipleCarousel';
 
 (function($, Drupal) {
-  Drupal.behaviors.mytheme = {
+  Drupal.behaviors.multipleCarousel = {
     attach(context) {
       if (context === document) {
         const wrapper = $('.multiple-carousel__wrapper');

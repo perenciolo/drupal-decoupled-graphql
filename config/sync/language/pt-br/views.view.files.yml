@@ -17,14 +17,19 @@ display:
           expose:
             items_per_page_label: 'Itens por página'
             items_per_page_options_all_label: '- Tudo -'
+            offset_label: Offset
       fields:
+        fid:
+          label: Fid
         filename:
           label: Nome
+          separator: ', '
         filemime:
           label: 'Tipo MIME'
         filesize:
           label: Tamanho
         status:
+          label: Status
           settings:
             format_custom_false: Temporário
             format_custom_true: Permanente
@@ -41,6 +46,9 @@ display:
         filemime:
           expose:
             label: 'Tipo MIME'
+        status:
+          expose:
+            label: Status
       title: Arquivos
       empty:
         area_text_custom:
@@ -59,6 +67,7 @@ display:
           expose:
             items_per_page_label: 'Itens por página'
             items_per_page_options_all_label: '- Tudo -'
+            offset_label: Offset
       fields:
         entity_label:
           label: Entidade

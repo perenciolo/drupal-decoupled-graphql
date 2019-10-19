@@ -16,11 +16,14 @@ display:
           expose:
             items_per_page_label: 'Itens por página'
             items_per_page_options_all_label: '- Tudo -'
+            offset_label: Offset
       fields:
         info:
           label: 'Descrição do bloco'
+          separator: ', '
         type:
           label: 'Tipo de bloco'
+          separator: ', '
         changed:
           label: Atualizado
         operations:
