@@ -97,6 +97,7 @@ function hero_card_preprocess_block(&$variables) {
               $data = [
                 "id" => $target_id,
                 "field_hc_show_scrollbar" => $block->get('field_hc_show_scrollbar')->value,
+                "field_hc_show_image_on_right" => $block->get('field_hc_show_image_on_right')->value,
                 "field_pdc_gci_description" => $paragraph->field_pdc_gci_description->value,
                 "field_pdc_gic_image" => [
                   "url" => $img_path,

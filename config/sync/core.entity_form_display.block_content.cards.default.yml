@@ -8,6 +8,7 @@ dependencies:
     - field.field.block_content.cards.field_card_description
     - field.field.block_content.cards.field_card_item
     - field.field.block_content.cards.field_card_title
+    - field.field.block_content.cards.field_cr_background_type
   module:
     - paragraphs
     - text
@@ -49,6 +50,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_cr_background_type:
+    weight: 30
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
   info:
     type: string_textfield

@@ -5,7 +5,7 @@ import FullPageBanner from '_components/FullPageBanner';
 import { GlobalStyle } from '_components/FullPageBanner/styles';
 
 (function($, Drupal) {
-  Drupal.behaviors.mytheme = {
+  Drupal.behaviors.fullPageBg = {
     attach(context) {
       if (context === document) {
         const wrapper = $('.full-page-background__wrapper');

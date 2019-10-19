@@ -1,0 +1,23 @@
+uuid: 6b5f455a-8dbc-4280-91a9-ac3532199f30
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.hero_card
+    - field.storage.block_content.field_hc_show_image_on_right
+id: block_content.hero_card.field_hc_show_image_on_right
+field_name: field_hc_show_image_on_right
+entity_type: block_content
+bundle: hero_card
+label: 'Show Image on Right'
+description: 'If checked shows card image on right side.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

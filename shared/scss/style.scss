@@ -1,22 +1,15 @@
 // Normalize.
-@import 'vendors/normalize';
-@import 'vendors/bootstrap';
+@import '_src/scss/vendors/index.scss';
 
 // APP variables
-@import 'variables/variables';
-@import 'variables/colors';
-@import 'variables/mixins';
-@import 'variables/typograph';
-@import 'variables/layout';
+@import '_src/scss/variables/index.scss';
 
 // APP base
-@import 'base/layout';
-@import 'base/typograph';
+@import '_src/scss/base/index.scss';
 
 // Atoms
-@import 'atoms/cols';
+@import '_src/scss/atoms/index.scss';
 
 // Molecules
 
-// Organisms
-@import 'organisms/cards-row';
+// Organisms should be placed on modules corresponding folder.

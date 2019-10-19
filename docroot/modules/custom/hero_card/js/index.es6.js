@@ -3,11 +3,10 @@ import '../scss/styles.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// import { GlobalStyle } from '_components/FullPageBanner/styles';
 import HeroCard from '_components/HeroCard';
 
 (function($, Drupal) {
-  Drupal.behaviors.mytheme = {
+  Drupal.behaviors.heroCard = {
     attach(context) {
       if (context === document) {
         const wrapper = $('.block__hero-card--wrapper');

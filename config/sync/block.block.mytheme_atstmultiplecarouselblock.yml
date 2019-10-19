@@ -2,7 +2,11 @@ uuid: 7451fe4f-6ba3-40e6-a253-8fc82992df0f
 langcode: en
 status: true
 dependencies:
+  content:
+    - 'block_content:multiple_carousel_block:49c63f50-8d14-41e6-bb73-91b015fd595f'
   module:
+    - block_content
+    - ctools
     - node
   theme:
     - mytheme
@@ -26,5 +30,11 @@ visibility:
     bundles:
       page: page
     negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles: {  }
+    negate: true
     context_mapping:
       node: '@node.node_route_context:node'

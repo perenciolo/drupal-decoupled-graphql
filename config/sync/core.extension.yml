@@ -8,6 +8,7 @@ module:
   block: 0
   block_content: 0
   breakpoint: 0
+  cards: 0
   ckeditor: 0
   color: 0
   comment: 0
@@ -19,6 +20,7 @@ module:
   ctools_block: 0
   datetime: 0
   dblog: 0
+  decoupled_header_libraries: 0
   devel: 0
   dynamic_page_cache: 0
   editor: 0

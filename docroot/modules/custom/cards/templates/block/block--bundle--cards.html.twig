@@ -1,0 +1,8 @@
+{% if data %}
+  {{ attach_library('cards/styling') }}
+  {{ attach_library('cards/default') }}
+  {% set classes = [
+    'block__cards--wrapper',
+  ]%}
+  <div{{attributes.addClass(classes)}} data-src='{{ data }}'></div>
+{% endif %}

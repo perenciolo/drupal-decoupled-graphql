@@ -1,0 +1,18 @@
+uuid: ccc4d434-1a15-4b21-bf85-7104f997dcba
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.field_hc_show_image_on_right
+field_name: field_hc_show_image_on_right
+entity_type: block_content
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
