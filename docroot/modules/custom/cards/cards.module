@@ -105,10 +105,14 @@ function cards_preprocess_block(&$variables) {
             && $paragraph->getType() === 'card_item') {
             $target_id = $paragraph->id();
             $paragraph =Paragraph::load($target_id);
+            
+            $links = $paragraph->get('field_cip_card_link')->getValue();
+
             $data['field_card_item'][] = [
               "id" => $target_id,
               "field_card_description" => $paragraph->get('field_card_description')->value,
               "field_card_title" => $paragraph->get('field_card_title')->value,
+              'field_cip_card_link' => !empty($links) ? create_link($links) : null
             ];
           }
         }
@@ -117,6 +121,21 @@ function cards_preprocess_block(&$variables) {
       $variables['data'] = json_encode([
         'content' => $data
       ]);
+    }
+  }
+}
+
+function create_link($links) {
+  
+  if (isset($links) && !empty($links)) {
+    foreach($links as $card_link) {
+      if (isset($card_link['uri']) && !empty($card_link['uri'])) {
+        // External Uri.
+        $url = Url::fromUri($card_link['uri'])->toString();
+        $card_link['uri'] = $url;
+        $card_link['options']['isExternal'] = UrlHelper::isExternal($url);
+        return $card_link;
+      }
     }
   }
 }

@@ -7,10 +7,10 @@
       padding: px-to-rem(25);
       margin-top: px-to-rem(20);
 
-      @include breakpoint('md') {
-        margin: px-to-rem(20) px-to-rem(15);
+      @include breakpoint('sm') {
+        margin-top: px-to-rem(25);
         flex: 1 1 auto;
-        max-width: calc(#{(100 / $i) * 1%} - #{px-to-rem(2 * 15)});
+        max-width: (100 / $i) * 1%;
       }
     }
   }

@@ -29,7 +29,7 @@
     &-wrapper {
       display: flex;
       flex-wrap: wrap;
-      margin: auto -15px;
+      margin: auto (px-to-rem(12.5) * -1);
 
       > *[class^='is-'] {
         @include choose-bg();
@@ -48,7 +48,6 @@
     &-title {
       text-transform: unset;
       font-weight: bold;
-      line-height: 0;
       padding: px-to-rem(25) 0;
       margin: 0;
 
@@ -58,6 +57,50 @@
     &-desc {
       @include font-16;
       @include choose-bg();
+    }
+  }
+
+  &-link {
+    margin-top: px-to-rem(20);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    > a {
+      text-decoration: none;
+      color: $global-black;
+      border: none;
+      transition: all 0.35s ease-in-out;
+      font-weight: bold;
+      display: inline-flex;
+      align-items: center;
+      outline: none;
+      flex: 1;
+
+      &:after {
+        content: '';
+        display: flex;
+        margin-left: 5px;
+        width: 0;
+        height: 0;
+
+        border-top: px-to-rem(5) solid transparent;
+        border-bottom: px-to-rem(5) solid transparent;
+        border-left: px-to-rem(5) solid $global-red;
+      }
+
+      &:hover,
+      &:active,
+      &:focus {
+        transform: scale(1.025);
+        text-decoration: none;
+        border: none;
+        color: $global-black;
+
+        &:after {
+          margin-left: 10px;
+        }
+      }
     }
   }
 }

@@ -1,0 +1,31 @@
+uuid: ef47a0e4-fa41-4faf-93da-821f91b8278d
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:pdb_fullwidth_background:9a0911b2-4947-4576-a0ee-a47751491329'
+  module:
+    - block_content
+    - system
+  theme:
+    - mytheme
+id: atstfullwidthbackgroundcustomblock
+theme: mytheme
+region: header
+weight: 0
+provider: null
+plugin: 'block_content:9a0911b2-4947-4576-a0ee-a47751491329'
+settings:
+  id: 'block_content:9a0911b2-4947-4576-a0ee-a47751491329'
+  label: 'ATST - [Fullwidth Background] - custom block'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

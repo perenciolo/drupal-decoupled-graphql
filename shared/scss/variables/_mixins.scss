@@ -287,12 +287,20 @@ $screen-xxs-max: 479px;
     background: $contrast-color;
   }
 
+  &.contrast {
+    @include breakpoint('sm') {
+      border-left: px-to-rem(12.5) solid $normal-color;
+      border-right: px-to-rem(12.5) solid $normal-color;
+    }
+  }
+
   .primary-secondary &,
   &.primary-secondary {
     background: $primary-color;
   }
 
-  .primary-secondary:nth-child(even) & &.primary-secondary:nth-child(even) {
+  .primary-secondary:nth-child(even) &,
+  &.primary-secondary:nth-child(even) {
     background: $secondary-color;
   }
 
@@ -308,11 +316,24 @@ $screen-xxs-max: 479px;
 
   &.secondary-primary,
   &.primary-secondary {
+    border: none;
     margin: 0;
     color: $txt-color;
 
-    @include breakpoint('sm') {
-      max-width: 50%;
+    .card-link {
+      > a {
+        color: $txt-color;
+
+        &:hover,
+        &:active,
+        &:focus {
+          color: $txt-color;
+        }
+
+        &:after {
+          border-left-color: $txt-color;
+        }
+      }
     }
   }
 }

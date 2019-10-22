@@ -1,0 +1,23 @@
+uuid: f00d8f39-e685-48af-b5cc-3621311c8bc2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cip_card_link
+    - paragraphs.paragraphs_type.card_item
+  module:
+    - link
+id: paragraph.card_item.field_cip_card_link
+field_name: field_cip_card_link
+entity_type: paragraph
+bundle: card_item
+label: 'Card Link'
+description: 'Link the current card to an internal or external page.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

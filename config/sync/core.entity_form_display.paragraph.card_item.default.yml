@@ -5,8 +5,10 @@ dependencies:
   config:
     - field.field.paragraph.card_item.field_card_description
     - field.field.paragraph.card_item.field_card_title
+    - field.field.paragraph.card_item.field_cip_card_link
     - paragraphs.paragraphs_type.card_item
   module:
+    - link
     - text
 id: paragraph.card_item.default
 targetEntityType: paragraph
@@ -28,6 +30,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_cip_card_link:
+    weight: 11
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
     region: content
   translation:
     weight: 10

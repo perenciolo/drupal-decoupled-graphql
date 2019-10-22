@@ -12,16 +12,19 @@ const CardsRow = ({ data }) => {
     field_card_title,
     field_cr_background_type,
   } = data;
+
   return (
     <div
       className={`cards-row ${+field_cr_background_type > 1 ? 'bg-alter' : ''}`}
     >
       {(field_card_title || field_card_description) && (
         <div className="cards-row-header">
-          <h3>{data.field_card_title}</h3>
-          <div className="cards-desc">
-            {renderHTML(data.field_card_description)}
-          </div>
+          {field_card_title && <h3>{field_card_title}</h3>}
+          {field_card_description && field_card_description.length && (
+            <div className="cards-desc">
+              {renderHTML(field_card_description)}
+            </div>
+          )}
         </div>
       )}
 
@@ -34,6 +37,7 @@ const CardsRow = ({ data }) => {
               desc={card.field_card_description}
               columns={field_card_columns}
               bgType={field_cr_background_type}
+              link={card.field_cip_card_link}
             />
           ))}
         </div>

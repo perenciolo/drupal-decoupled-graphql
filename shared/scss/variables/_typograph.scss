@@ -134,3 +134,7 @@ $font-thick: $hero-font;
     @include really-long-text-all-sizes();
   }
 }
+
+* {
+  -webkit-font-smoothing: antialiased !important;
+}
