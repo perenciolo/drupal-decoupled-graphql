@@ -272,3 +272,47 @@ $screen-xxs-max: 479px;
   margin-left: auto;
   margin-right: auto;
 }
+
+@mixin choose-bg(
+  $normal-color: $global-white,
+  $contrast-color: $global-white-2,
+  $primary-color: rebeccapurple,
+  $secondary-color: magenta,
+  $txt-color: $global-white
+) {
+  background: $normal-color;
+
+  .contrast &,
+  &.contrast {
+    background: $contrast-color;
+  }
+
+  .primary-secondary &,
+  &.primary-secondary {
+    background: $primary-color;
+  }
+
+  .primary-secondary:nth-child(even) & &.primary-secondary:nth-child(even) {
+    background: $secondary-color;
+  }
+
+  .secondary-primary &,
+  &.secondary-primary {
+    background: $secondary-color;
+  }
+
+  .secondary-primary:nth-child(even) &,
+  &.secondary-primary:nth-child(even) {
+    background: $primary-color;
+  }
+
+  &.secondary-primary,
+  &.primary-secondary {
+    margin: 0;
+    color: $txt-color;
+
+    @include breakpoint('sm') {
+      max-width: 50%;
+    }
+  }
+}

@@ -4,8 +4,22 @@
   // cards
   &s {
     &-row {
-      @include container;
+      &:not(.bg-alter) {
+        @include container;
+      }
       @include top-bottom-padding;
+
+      &-header {
+        .bg-alter & {
+          @include container;
+
+          padding-bottom: px-to-rem(20);
+
+          @include breakpoint('md') {
+            padding-bottom: px-to-rem(20);
+          }
+        }
+      }
     }
 
     &-desc {
@@ -14,11 +28,19 @@
 
     &-wrapper {
       display: flex;
-      margin: auto -15px;
       flex-wrap: wrap;
+      margin: auto -15px;
 
       > *[class^='is-'] {
-        margin: px-to-rem(20) auto;
+        @include choose-bg();
+      }
+
+      .bg-alter & {
+        margin: auto;
+
+        > *[class^='is-'] {
+          @include container;
+        }
       }
     }
   }
@@ -29,14 +51,13 @@
       line-height: 0;
       padding: px-to-rem(25) 0;
       margin: 0;
+
+      @include choose-bg();
     }
 
     &-desc {
       @include font-16;
-
-      @include breakpoint('md') {
-        width: 90%;
-      }
+      @include choose-bg();
     }
   }
 }

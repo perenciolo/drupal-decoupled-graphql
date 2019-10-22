@@ -81,8 +81,18 @@ function cards_preprocess_block(&$variables) {
 
       $data['field_card_title'] = $block->get('field_card_title')->value;
       $data['field_card_description'] = $block->get('field_card_description')->value;
+
       $cols = $block->get('field_card_columns')->value;
       $data['field_card_columns'] = $cols ? $cols : 1;
+
+      $bg_type = $block->get('field_cr_background_type')->value;
+      // TYPES:
+      // 0|Normal
+      // 1|Contrast
+      // 2|Primary-Secondary
+      // 3|Secondary-Primary
+      $data['field_cr_background_type'] = $bg_type ? $bg_type : 0;
+
       $paragraphs = $block->get('field_card_item')->referencedEntities();
 
       if(isset($paragraphs) && !empty($paragraphs)) {
@@ -90,7 +100,7 @@ function cards_preprocess_block(&$variables) {
           if (!$paragraph instanceof Paragraph) {
             continue;
           }
-          
+
           if($paragraph->getType()
             && $paragraph->getType() === 'card_item') {
             $target_id = $paragraph->id();

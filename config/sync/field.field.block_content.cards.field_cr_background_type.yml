@@ -1,0 +1,23 @@
+uuid: 921e04ec-2400-482a-8d98-6b14799fc814
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cards
+    - field.storage.block_content.field_cr_background_type
+  module:
+    - options
+id: block_content.cards.field_cr_background_type
+field_name: field_cr_background_type
+entity_type: block_content
+bundle: cards
+label: 'Background Type'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: '0'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

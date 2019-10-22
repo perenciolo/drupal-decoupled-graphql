@@ -10,9 +10,12 @@ const CardsRow = ({ data }) => {
     field_card_description,
     field_card_item,
     field_card_title,
+    field_cr_background_type,
   } = data;
   return (
-    <div className="cards-row">
+    <div
+      className={`cards-row ${+field_cr_background_type > 1 ? 'bg-alter' : ''}`}
+    >
       {(field_card_title || field_card_description) && (
         <div className="cards-row-header">
           <h3>{data.field_card_title}</h3>
@@ -30,6 +33,7 @@ const CardsRow = ({ data }) => {
               title={card.field_card_title}
               desc={card.field_card_description}
               columns={field_card_columns}
+              bgType={field_cr_background_type}
             />
           ))}
         </div>

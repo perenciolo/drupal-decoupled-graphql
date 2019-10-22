@@ -8,6 +8,7 @@ dependencies:
     - field.field.block_content.cards.field_card_description
     - field.field.block_content.cards.field_card_item
     - field.field.block_content.cards.field_card_title
+    - field.field.block_content.cards.field_cr_background_type
   module:
     - entity_reference_revisions
     - options
@@ -47,6 +48,13 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
+  field_cr_background_type:
+    weight: 4
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
     region: content
 hidden:
   langcode: true

@@ -96,8 +96,7 @@
       color: #fff; }
       @media (min-width: 992px) {
         .block__hero-card--wrapper .container .side-left .btn_wrapper .cta--primary, .block__hero-card--wrapper .container .side-left .btn_wrapper .cta--secondary {
-          flex-basis: 150px;
-          max-width: 250px; } }
+          flex-basis: 150px; } }
     .block__hero-card--wrapper .container .side-left .btn_wrapper .cta--secondary {
       margin-left: 2rem;
       border: 1px solid orangered;
