@@ -1,0 +1,58 @@
+<?php
+
+/**
+ * @file
+ * Contains zebra_system.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function zebra_system_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the zebra_system module.
+    case 'help.page.zebra_system':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Progressive Decoupled initiative Zebra System Module, gives the user ability to enable and disable zebra background on the site.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+// function zebra_system_theme($existing, $type, $theme, $path) {
+//   $templ_path = $path . '/templates/';
+
+//   return [
+//     'zebra_system' => [
+//       'render element' => 'children',
+//     ],
+//   ];
+// }
+
+function zebra_system_preprocess_one_column(&$variables) {
+  // Erase prefix and sufix for content
+  if (isset($variables['content']['#prefix']) && isset($variables['content']['#suffix'])) {
+    $variables['content']['#prefix'] = NULL;
+    $variables['content']['#suffix'] = NULL;
+
+    if (isset($variables['content']['main']['#prefix']) && isset($variables['content']['main']['#suffix'])) {
+      $variables['content']['main']['#prefix'] = NULL;
+      $variables['content']['main']['#suffix'] = NULL;
+    }
+  }
+}
+
+/**
+ * Implements page_attachments().
+ */
+function zebra_system_page_attachments(array &$attachments) {
+  $attachments['#attached']['library'][] = 'zebra_system/default';
+  $attachments['#attached']['library'][] = 'zebra_system/styling';
+}

@@ -1,0 +1,12 @@
+{%
+  set classes = [
+    'layout',
+    'layout--onecol',
+    'zebra-system-wrapper'
+  ]
+%}
+{% if content %}
+  <div{{attributes.addClass(classes)}}>
+    {{ content.main }}
+  </div>
+{% endif %}

@@ -46,7 +46,6 @@
     "require-dev": {
         "drupal/coder": "^8.3",
         "drupal/config_profile": "^1.0@RC",
-        "drupal/console": "^1.0.2",
         "drush/drush": "^9.0",
         "drupal/drush_help": "^1.0",
         "drupal/devel": "^2.1",

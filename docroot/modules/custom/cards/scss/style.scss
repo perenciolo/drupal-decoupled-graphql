@@ -6,8 +6,8 @@
     &-row {
       &:not(.bg-alter) {
         @include container;
+        @include top-bottom-padding;
       }
-      @include top-bottom-padding;
 
       &-header {
         .bg-alter & {
@@ -40,6 +40,7 @@
 
         > *[class^='is-'] {
           @include container;
+          @include top-bottom-padding;
         }
       }
     }
