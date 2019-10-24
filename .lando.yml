@@ -1,10 +1,11 @@
 name: d8graphql
 recipe: drupal8
 config:
-  php: '7.2'
+  php: "7.2"
   via: nginx
   webroot: docroot
   drush: composer
+  drupal: true
   database: mysql:5.7
   xdebug: true
   conf:

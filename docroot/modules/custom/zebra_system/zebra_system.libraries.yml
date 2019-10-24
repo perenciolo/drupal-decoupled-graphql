@@ -1,0 +1,10 @@
+default:
+  js:
+    js/index.compiled.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+styling:
+  css:
+    theme:
+      css/index.css: {}

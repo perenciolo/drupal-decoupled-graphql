@@ -1,0 +1,11 @@
+@import '_src/scss/variables/index.scss';
+
+.zebra-system {
+  &-wrapper {
+    body & {
+      > * {
+        @include make-zebra();
+      }
+    }
+  }
+}

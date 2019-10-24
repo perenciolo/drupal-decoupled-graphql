@@ -1,0 +1,22 @@
+one_column:
+  label: 'One column'
+  category: 'Zebra System Layouts'
+  template: templates/layout/one-column
+  default_region: main
+  regions:
+    main:
+      label: Main content
+two_column:
+  label: 'Two column'
+  category: 'Zebra System Layouts'
+  template: templates/layout/two-column
+  default_region: top
+  regions:
+    top:
+      label: Top content
+    first:
+      label: First content
+    second:
+      label: Second content
+    bottom:
+      label: Bottom content

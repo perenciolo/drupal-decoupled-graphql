@@ -1,0 +1,6 @@
+zebra_system.admin_settings_form:
+  title: 'Zebra System'
+  route_name: zebra_system.admin_settings_form
+  description: 'Manage Zebra System'
+  parent: system.admin_config_system
+  weight: 99

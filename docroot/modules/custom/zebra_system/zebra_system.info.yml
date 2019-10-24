@@ -1,0 +1,5 @@
+name: 'Zebra System'
+type: module
+description: 'Progressive Decoupled initiative Zebra System Module, gives the user ability to enable and disable zebra background on the site.'
+core: 8.x
+package: 'PDC'

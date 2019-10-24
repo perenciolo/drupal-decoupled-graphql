@@ -337,3 +337,33 @@ $screen-xxs-max: 479px;
     }
   }
 }
+
+@mixin make-zebra(
+  $first_type: true,
+  $second_type: even,
+  $first_color: transparent,
+  $second_color: $off-white-bg
+) {
+  @if ($first_type) {
+    &:nth-child(odd) {
+      background-color: $first_color;
+    }
+
+    &:nth-child(even) {
+      background-color: $second_color;
+    }
+  } @else {
+    &:nth-child(even) {
+      background-color: $first_color;
+    }
+
+    &:nth-child(odd) {
+      background-color: $second_color;
+    }
+  }
+
+  // Special case if exactly 2 children
+  &:nth-child(2):last-child {
+    background-color: $first_color;
+  }
+}
