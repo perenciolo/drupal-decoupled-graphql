@@ -4,18 +4,7 @@
   &-wrapper {
     body & {
       > * {
-        &:nth-child(odd) {
-          background-color: transparent;
-        }
-
-        &:nth-child(even) {
-          background-color: $off-white-bg;
-        }
-
-        // Special case if exactly 2 children
-        &:nth-child(2):last-child {
-          background-color: transparent;
-        }
+        @include make-zebra();
       }
     }
   }

@@ -56,7 +56,64 @@ function zebra_system_preprocess_one_column(&$variables) {
       if($enable_zebra_system) {
         $variables['content']['main']['#prefix'] = '<div class="zebra-system-wrapper">';
         $variables['content']['main']['#suffix'] = '</div>';
-        dump('HERE!');
+      }
+    }
+  }
+}
+
+function zebra_system_preprocess_two_column(&$variables) {
+  // Erase prefix and sufix for content
+  if (isset($variables['content']['#prefix']) && isset($variables['content']['#suffix'])) {
+
+    // Get form config.
+    $config = \Drupal::service('config.factory')->getEditable('zebra_system.adminsettings');
+    // Set enable_zebra_system if checked.
+    $enable_zebra_system = intval($config->get('enable_zebra_system'));
+
+    $variables['content']['#prefix'] = NULL;
+    $variables['content']['#suffix'] = NULL;
+
+    $templ_regions = $variables['content']['#layout']->get('regions');
+    if (isset($templ_regions)
+        && !empty($templ_regions)) {
+      // For each region set prefix div zebra-wrapper
+      foreach($templ_regions as $region => $value) {
+        if (isset($variables['content'][$region]['#prefix']) && isset($variables['content'][$region]['#suffix'])) {
+          $variables['content'][$region]['#prefix'] = NULL;
+          $variables['content'][$region]['#suffix'] = NULL;
+
+          // Create Zebra Wrapper if admin checkbox is set to Show zebra Systems.
+          if($enable_zebra_system) {
+            $variables['content'][$region]['#prefix'] = '<div class="zebra-system-wrapper">';
+            $variables['content'][$region]['#suffix'] = '</div>';
+          }
+        }
+      }
+    }
+
+  }
+}
+
+function zebra_system_preprocess_three_column(&$variables) {
+  // Erase prefix and sufix for content
+  if (isset($variables['content']['#prefix']) && isset($variables['content']['#suffix'])) {
+
+    // Get form config.
+    $config = \Drupal::service('config.factory')->getEditable('zebra_system.adminsettings');
+    // Set enable_zebra_system if checked.
+    $enable_zebra_system = intval($config->get('enable_zebra_system'));
+
+    $variables['content']['#prefix'] = NULL;
+    $variables['content']['#suffix'] = NULL;
+
+    if (isset($variables['content']['top']['#prefix']) && isset($variables['content']['top']['#suffix'])) {
+      $variables['content']['top']['#prefix'] = NULL;
+      $variables['content']['top']['#suffix'] = NULL;
+
+      // Create Zebra Wrapper if admin checkbox is set to Show zebra Systems.
+      if($enable_zebra_system) {
+        $variables['content']['top']['#prefix'] = '<div class="zebra-system-wrapper">';
+        $variables['content']['top']['#suffix'] = '</div>';
       }
     }
   }
