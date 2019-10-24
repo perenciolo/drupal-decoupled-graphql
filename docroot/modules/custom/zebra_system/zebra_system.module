@@ -39,12 +39,25 @@ function zebra_system_help($route_name, RouteMatchInterface $route_match) {
 function zebra_system_preprocess_one_column(&$variables) {
   // Erase prefix and sufix for content
   if (isset($variables['content']['#prefix']) && isset($variables['content']['#suffix'])) {
+
+    // Get form config.
+    $config = \Drupal::service('config.factory')->getEditable('zebra_system.adminsettings');
+    // Set enable_zebra_system if checked.
+    $enable_zebra_system = intval($config->get('enable_zebra_system'));
+
     $variables['content']['#prefix'] = NULL;
     $variables['content']['#suffix'] = NULL;
 
     if (isset($variables['content']['main']['#prefix']) && isset($variables['content']['main']['#suffix'])) {
       $variables['content']['main']['#prefix'] = NULL;
       $variables['content']['main']['#suffix'] = NULL;
+
+      // Create Zebra Wrapper if admin checkbox is set to Show zebra Systems.
+      if($enable_zebra_system) {
+        $variables['content']['main']['#prefix'] = '<div class="zebra-system-wrapper">';
+        $variables['content']['main']['#suffix'] = '</div>';
+        dump('HERE!');
+      }
     }
   }
 }
