@@ -1,18 +1,14 @@
 one_column:
-  label: 'One column'
-<<<<<<< HEAD
-  category: 'Columns: 1'
-=======
-  category: 'Zebra System Layouts'
->>>>>>> da81732... Add Zebra System Module
+  label: "One column"
+  category: "Zebra System Layouts"
   template: templates/layout/one-column
   default_region: main
   regions:
     main:
       label: Main content
 two_column:
-  label: 'Two column'
-  category: 'Zebra System Layouts'
+  label: "Two column"
+  category: "Zebra System Layouts"
   template: templates/layout/two-column
   default_region: top
   regions:
