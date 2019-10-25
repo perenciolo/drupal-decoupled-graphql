@@ -1,0 +1,15 @@
+transcode_profile.transcode_profile.*:
+  type: config_entity
+  label: 'Transcode profile config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Profile Name'
+    codec:
+      type: label
+      label: 'Codec'
+    uuid:
+      type: string

@@ -1,0 +1,10 @@
+demo.settings:
+  type: config_object
+  label: 'Demo module settings'
+  mapping:
+    demo_label:
+      type: integer # Can be any valid data type, such as boolean, string, float, email, uri
+      label: 'A demo label'
+    demo_checkbox:
+      type: boolean
+      label: 'A demo checkbox'

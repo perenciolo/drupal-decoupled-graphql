@@ -1,0 +1,4 @@
+name: demo
+description: Demo module to test schemas and configs
+type: module
+core: 8.x
