@@ -148,11 +148,15 @@ export const BtnWrapper = styled.div`
     }
   }
 
-  @media ${device.laptopL} {
+  @media ${device.laptop} {
     align-items: center;
     flex-direction: row;
-    max-width: 60%;
+    max-width: 85%;
     margin-right: ${props => (+props.imgRight.value ? '50px' : '0')};
     margin-left: ${props => (!+props.imgRight.value ? '50px' : '0')};
+  }
+
+  @media ${device.laptopL} {
+    max-width: 60%;
   }
 `;

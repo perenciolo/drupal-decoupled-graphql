@@ -81,7 +81,7 @@ function zebra_system_preprocess_two_column(&$variables) {
         if (isset($variables['content'][$region]['#prefix']) && isset($variables['content'][$region]['#suffix'])) {
           $variables['content'][$region]['#prefix'] = NULL;
           $variables['content'][$region]['#suffix'] = NULL;
-    
+
           // Create Zebra Wrapper if admin checkbox is set to Show zebra Systems.
           if($enable_zebra_system) {
             $variables['content'][$region]['#prefix'] = '<div class="zebra-system-wrapper">';
