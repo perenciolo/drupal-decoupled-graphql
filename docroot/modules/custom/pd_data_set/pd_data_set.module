@@ -1,0 +1,143 @@
+<?php
+
+/**
+ * @file
+ * Contains pd_data_set.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\file\Entity\File;
+use Drupal\paragraphs\Entity\Paragraph;
+use Drupal\Component\Utility\Html;
+use Drupal\Core\Url;
+use Drupal\Component\Utility\UrlHelper;
+use Drupal\entity_reference_revisions\EntityReferenceRevisionsFieldItemList;
+
+/**
+ * Implements hook_help().
+ */
+function pd_data_set_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the pd_data_set module.
+    case 'help.page.pd_data_set':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Module to show data') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function pd_data_set_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  if (isset($variables['elements']['content']['#block_content'])) {
+   array_splice($suggestions, 1, 0, 'block__bundle__' . $variables['elements']['content']['#block_content']->bundle());
+ }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function pd_data_set_theme($existing, $type, $theme, $path) {
+  $templ_path = $path . '/templates/';
+
+  return [
+    'block__bundle__pdb_data_module' => [
+      'render element' => 'elements',
+      'template' => 'block--bundle--pdb-data-module',
+      'path' => $templ_path . 'block',
+      'base hook' => 'block',
+    ],
+  ];
+}
+
+/**
+ * Implements template_preprocess_block().
+ */
+function pd_data_set_preprocess_block(&$variables) {
+
+  if (!empty($variables['content']['#block_content'])) {
+    $language_manager = \Drupal::languageManager();
+    $context = [
+      'langcode' => $language_manager->getCurrentLanguage()->getId(),
+      'operation' => 'language_hierarchy_update_priorities',
+    ];
+    $fallback_candidates = $language_manager->getFallbackCandidates($context);
+    $hasTranslation = FALSE;
+
+    $blockEntity = $variables['content']['#block_content'];
+
+    foreach ($fallback_candidates as $fallback_canditate) {
+      if ($blockEntity->hasTranslation($fallback_canditate)) {
+        $hasTranslation = TRUE;
+        break;
+      }
+    }
+
+    if (!$hasTranslation) {
+      // Remove content when it doesn't have a translation.
+      $variables['content'] = NULL;
+      return FALSE;
+    }
+
+    $block_bundle = $variables['content']['#block_content']->bundle();
+    $variables['attributes']['class'][] = 'block--block-content--' . Html::cleanCssIdentifier($block_bundle);
+
+    if ($variables['label'] !== '') {
+      $variables['label'] = $variables['content']['#block_content']->label();
+    }
+
+    if (!$block_bundle) {
+      return FALSE;
+    }
+
+    $block = $variables['content']['#block_content'];
+
+    if ($block_bundle === 'pdb_data_module') {
+      $block_fields = $block->getFields();
+      if (isset($block_fields) && !empty($block_fields)) {
+        $data = NULL;
+
+        foreach($block_fields as $field_name => $field) {
+          if($block->get($field_name) instanceof EntityReferenceRevisionsFieldItemList) {
+            $paragraphs = $block->get($field_name)->referencedEntities();
+
+            if(isset($paragraphs) && !empty($paragraphs)) {
+              foreach ($paragraphs as $paragraph) {
+                if (!$paragraph instanceof Paragraph) {
+                  continue;
+                }
+
+                $target_id = $paragraph->id();
+                $paragraph =Paragraph::load($target_id);
+
+                // Data Set Metadata.
+                if ($block->get($field_name)->getName() === 'field_pdb_dm_metadata') {
+                  $data[$block->get($field_name)->getName()]['field_pd_citd_description'] = $paragraph->get('field_pd_citd_description')->value;
+                  $data[$block->get($field_name)->getName()]['field_pd_citd_title'] = $paragraph->get('field_pd_citd_title')->value;
+                }
+
+                // Data Item.
+                if ($block->get($field_name)->getName() === 'field_pdb_dm_data_item') {
+
+                  $data[$block->get($field_name)->getName()][] = [
+                    'field_pd_citd_description' => $paragraph->get('field_pd_citd_description')->value,
+                    'field_pd_citd_title' => $paragraph->get('field_pd_citd_title')->value,
+                  ];
+                }
+              }
+            }
+          }
+        }
+      }
+
+      // Encode data for React.
+      $variables['data'] = json_encode([
+        'content' => $data
+      ]);
+    }
+  }
+}

@@ -1,0 +1,5 @@
+name: 'Data Set'
+type: module
+description: 'Module to show data'
+core: 8.x
+package: 'PDC'

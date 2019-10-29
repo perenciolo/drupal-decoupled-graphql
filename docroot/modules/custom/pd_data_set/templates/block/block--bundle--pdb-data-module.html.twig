@@ -1,0 +1,8 @@
+{% if data %}
+  {{ attach_library('pd_data_set/styling') }}
+  {{ attach_library('pd_data_set/default') }}
+  {% set classes = [
+    'block__data-set--wrapper',
+  ]%}
+  <div{{attributes.addClass(classes)}} data-src='{{ data }}'></div>
+{% endif %}
